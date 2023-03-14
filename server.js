@@ -1,7 +1,10 @@
+const dotenv = require("dotenv")
 const express = require("express")
 const mongoose = require("mongoose")
+// import mongoose from "mongoose"
 var cors = require('cors')
 
+dotenv.config()
 const homeh= require('./data')
 
 const app = express()
@@ -12,10 +15,16 @@ app.use(
 )
 app.use(express.json())
 
+const {MONGODB_QUERY,MONGODB_NAME,MONGODB_URI}=process.env
+const URI = `${MONGODB_URI}/${MONGODB_NAME}${MONGODB_QUERY}`;
+
+console.log(URI)
 //conneting data base
 const connect = () => {
-    return mongoose.connect("mongodb+srv://plus_px_dev:plusPXdev@cluster0.hospv.mongodb.net/plus_px_dev?retryWrites=true&w=majorityfeature")
+    return  mongoose.connect(URI)
 }
+
+
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -258,26 +267,26 @@ app.get("/searchjob", async (req, res) => {
     
 })
 
-app.get("/filter", async (req, res) => {
-   let whereQuery={}
+// app.get("/filter", async (req, res) => {
+//    let whereQuery={}
    
-    if (body?.Development) {
-        whereQuery = { ...whereQuery, Development: body?.Development }
-    }
-    if (body?.Design) {
-        whereQuery = { ...whereQuery, Design: body?.Design }
-    }
+//     if (body?.Development) {
+//         whereQuery = { ...whereQuery, Development: body?.Development }
+//     }
+//     if (body?.Design) {
+//         whereQuery = { ...whereQuery, Design: body?.Design }
+//     }
 
-    if (body?.Management) {
-        whereQuery = { ...whereQuery, Management: body?.Management }
-    }
+//     if (body?.Management) {
+//         whereQuery = { ...whereQuery, Management: body?.Management }
+//     }
     
-    let filter = await Jobs.find({whereQuery})
-    res.send(filter)
+//     let filter = await Jobs.find({whereQuery})
+//     res.send(filter)
     
    
 
-})
+// })
 
 // navbar
 
@@ -327,7 +336,7 @@ const port = process.env.PORT || 2233
 
 
 
-app.timeout = 30
+app.timeout = 300
 app.listen(port, async () => {
     //http://localhost:2233/home
     await connect()
