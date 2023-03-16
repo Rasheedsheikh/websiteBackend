@@ -2,13 +2,14 @@ const data={
     "Total": {
         "Titleimg": "",
         "NavRoutes": [
-            {"name":"Home"},
-           {"name":"Services"},
-           {"name":"Industries"},
-            {"name":"Solutions"},
-           {"name": "Community",},
+            {"name":"Home","path":"/"},
+            {"name":"Services","path":"#Services"},
+            {"name":"Industries","path":"#Industriess"},
+            {"name":"Solutions","path":"#Solution"},
+            {"name": "Community","path":"#Community"},
             {"name":"Careers","path":"/career"}
         ],
+     
         "Services": {
          "what": [{
                 "title":"WHAT WE DO",
@@ -18,34 +19,20 @@ const data={
                 {
                     "number":"01",
                     "heading": "Digital Transformation Services",
-                    "desc":["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+                    "desc":["Provide digital solutions for your company’s needs to create a competitive advantage for your business with a variety of low-code applications development platforms like Salesforce, Out systems and open source technologies like Node JS, Express Script etc for which resources are widely available in the market for you to hire and support the platform if desired."
+
                   ]
                 },
                 {
                     "number":"02",
                     "heading": "Products & Accelerators",
-                    "desc":["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+                    "desc":["Converting your ideas or expensive and antiquated digital footprint solutions to future ready digital assets using our productized solutions library for noiseless application in your use cases"
                   ]
                 },
                 {
                     "number":"03",
                     "heading": "Resource Augmentation",
-                    "desc":["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+                    "desc":["Staffing solutions on Time basis for any technology & domain centric project needs at onsite, remote, hybrid or offshore model"
                           ]
                 }
             ]
@@ -61,19 +48,19 @@ const data={
                 },
                 {
                     "img": "https://images.unsplash.com/photo-1630959302862-82cec6653d60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80",
-                    "title": "DataAnalytics",
+                    "title": "Bio technology",
                     "desc": "Does your organisation have data challenges? Let our data scientist help you unlock the potential of data-driven business decisions that bring deep analytics."
                 },
                 {
                     "img": "https://images.unsplash.com/photo-1521790797524-b2497295b8a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80",
-                    "title": "Digital Transformation",
+                    "title": "Providers",
                     "desc": "Provide digital solutions for your company’s needs to create a competitive advantage for your business with a variety of low-code applications development ",
                     "button": "Learn More"
                 },
                 {
                     "img": "https://images.unsplash.com/photo-1556740720-776b84291f8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80",
-                    "title": "Staff Augmentation",
-                    "desc": "Staffing solutions on Time basis for any technology & domain centric project needs at onsite, remote, hybrid or offshore model",
+                    "title": "Payers",
+                    "desc": "Staffing solutions on Time basis for any technology & domain centric project needs at onsite, remote, hybrid or offshore model according to the requirement",
                     "button": "Learn More"
                 }
             ]
@@ -85,24 +72,24 @@ const data={
                 "desc": "Our services and solutions are tailored towards getting the right patients to the right treatment at the right time by enabling latest and greatest technology to drive better health outcomes for patients"
                       }],
             "Images": [
-                {"img":"https://www.cxtoday.com/wp-content/uploads/2020/03/Google-Cloud-DialogFlow-Mega-Agent-1280x720.jpg",
-                  "title":"HEALTH CLOUD"
+                {"img":"https://cnetric.com/wp-content/webpc-passthru.php?src=https://cnetric.com/wp-content/uploads/2022/04/amazon_ai-1024x928.png&nocache=1",
+                  "title":"AI & ML"
                 },
                 {"img":" https://pbs.twimg.com/profile_images/638954870603558912/4nY5fvXW_400x400.jpg",
                 
-                "title":"AI & ML"
+                "title":"Health Cloud"
                 },
                 {"img":"https://www.varianceinfotech.com/assets/front/images/banner-images/mern-stack-banner-image.png",
-                 "title":"BOT"
+                 "title":"MERN"
                 },
                 {"img":"https://download.logo.wine/logo/MuleSoft/MuleSoft-Logo.wine.png",
-                   "title":"OPEN SOURCE"
+                   "title":"MULE SOFT"
                 },
                 {"img":"https://pbs.twimg.com/profile_images/1268228177815429120/L3AgRFu-_400x400.jpg",
                    "title":"SALESFORCE"
                 },
                 {"img":"https://uploads-ssl.webflow.com/61890b3e10a48b2298b3f94c/61890b3e10a48b007bb3fa87_Group%2027446.png",
-                  "title":"MULE SOFT"
+                  "title":"BOT"
                 }]
                 
         },
@@ -149,7 +136,7 @@ const data={
             "title":["Why Choose Us"],
             "desc":[{
                 "number":"01",
-                "detail":"Strong domain knowledge in Drug Development"
+                "detail":"Strong domain knowledge in Drug Development and in others areas as well"
                
             },
             {
@@ -167,7 +154,7 @@ const data={
             },
             {
                 "number":"05",
-                "detail":"Connection with large Life Sciences companies help to cosell Paradigm IP"
+                "detail":"Connection with large Life Sciences companies help to cosell Paradigm IP and in drug development industry"
             },
             {
                 "number":"06",
