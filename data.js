@@ -7,8 +7,12 @@ const data={
             {"name":"Industries","path":"#Industriess"},
             {"name":"Solutions","path":"#Solution"},
             {"name": "Community","path":"#Community"},
-            {"name":"Careers","path":"/career"}
+            {"name":"Careers","path":"#career"}
         ],
+        "index":[{
+            "title":["The power of", "technology"],
+            "video":"https://drive.google.com/drive/folders/1XruERu9trJiJYzlZgHo4CBUG7AGy2n5e"
+        }],
      
         "Services": {
          "what": [{

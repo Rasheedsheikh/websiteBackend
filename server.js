@@ -1,8 +1,11 @@
 const dotenv = require("dotenv")
 const express = require("express")
 const mongoose = require("mongoose")
+// const Multer = require('multer');
+// const {Storage} = require('@google-cloud/storage');
 // import mongoose from "mongoose"
 var cors = require('cors')
+
 
 dotenv.config()
 const homeh= require('./data')
@@ -307,10 +310,10 @@ app.get("/searchjob", async (req, res) => {
 
 // })
 
-
-// app.get("/",async getAppointments(@Body() params: any) {
-//     console.log({ params });
-//     const bucketName = process.env.GCP_BUCKET_NAME;
+// app.post('/fileUpload', async(req,res)=>{
+//     console.log(req );
+//     res.send(req)
+//     const bucketName = "urgentcare-forms-demo";
 //     const fileName = params.fileName;
 //     const fileType = params.fileType;
 //     const options = {
@@ -329,7 +332,49 @@ app.get("/searchjob", async (req, res) => {
 //       signedRequest: url,
 //       url: `https://storage.googleapis.com/${bucketName}/${fileName}`,
 //     };
+
+
 //   }
+// )
+// const multer = Multer({
+//     storage: Multer.memoryStorage(),
+//     limits: {
+//       fileSize: 100 * 1024 * 1024, 
+//     },
+//   });
+
+
+//   const storage = new Storage();
+//   const bucket = storage.bucket(process.env.GCP_BUCKET_NAME);
+
+
+// app.post('/fiupload', multer.single('file'), (req, res, next) => {
+//     if (!req.file) {
+//       res.status(400).send('No file uploaded.');
+//       return;
+//     }
+//     console.log({req})
+  
+   
+//     const blob = bucket.file(req.file.originalname);
+//     const blobStream = blob.createWriteStream();
+  
+//     blobStream.on('error', err => {
+//       next(err);
+//     });
+  
+//     blobStream.on('finish', () => {
+     
+//       const publicUrl = format(
+//         `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+//       );
+//       res.status(200).send(publicUrl);
+//     });
+  
+//     blobStream.end(req.file.buffer);
+//   });
+  
+
 
 
 const port = process.env.PORT || 2233
