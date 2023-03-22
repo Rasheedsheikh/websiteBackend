@@ -2,12 +2,12 @@ const data={
     "Total": {
         "Titleimg": "",
         "NavRoutes": [
-            {"name":"Home","path":"/"},
-            {"name":"Services","path":"#Services"},
-            {"name":"Industries","path":"#Industriess"},
-            {"name":"Solutions","path":"#Solution"},
-            {"name": "Community","path":"#Community"},
-            {"name":"Careers","path":"#career"}
+            {"name":"Home","path":"/","options":[] },
+            {"name":"Services","path":"#Services","options": ['Digital Transformation Services', 'Products & Accelerators', 'Resource Augmentation']},
+            {"name":"Industries","path":"#Industriess","options": ["Products & Accelerators","Bio technology","Providers","Payers"]},
+            {"name":"Solutions","path":"#Solution","options": ["AI & ML","Health Cloud","MERN"," MULE SOFT", "SALESFORCE","BOT"]},
+            {"name": "Community","path":"#Community","options": []},
+            {"name":"Careers","path":"#career","options": []}
         ],
         "index":[{
             "title":["The power of", "technology"],
@@ -23,20 +23,27 @@ const data={
                 {
                     "number":"01",
                     "heading": "Digital Transformation Services",
-                    "desc":["Provide digital solutions for your company’s needs to create a competitive advantage for your business with a variety of low-code applications development platforms like Salesforce, Out systems and open source technologies like Node JS, Express Script etc for which resources are widely available in the market for you to hire and support the platform if desired."
+                    "desc":["Provide digital solutions for your company’s needs to create a competitive advantage for your business",
+                              "We handle a variety of low-code applications development platforms like Salesforce, Out systems and open source technologies like Node JS, Express Script etc",
+                             "Our resources are always available for you to hire and support the platform if desired.",
+                             "We handle a variety of low-code applications development platforms like Salesforce, Out systems and open source technologies like Node JS, Express Script etc"
 
                   ]
                 },
                 {
                     "number":"02",
                     "heading": "Products & Accelerators",
-                    "desc":["Converting your ideas or expensive and antiquated digital footprint solutions to future ready digital assets using our productized solutions library for noiseless application in your use cases"
+                    "desc":["Converting your ideas or expensive and antiquated digital footprint solutions to future ready digital assets",
+                    "Our productized solutions library for noiseless application in your use cases can considerably reduce the implementation cycle time "
                   ]
                 },
                 {
                     "number":"03",
                     "heading": "Resource Augmentation",
-                    "desc":["Staffing solutions on Time basis for any technology & domain centric project needs at onsite, remote, hybrid or offshore model"
+                    "desc":["Our company specializes in resource augmentation for businesses looking to improve their capacity, capabilities, and productivity.",
+                    "Our team of skilled professionals has expertise in a wide range of technologies, including software development, data analytics, cloud computing and AI/ML solutions",
+                    "Our cost-effective solutions help our clients reduce their costs and improve their bottom line, while our commitment to quality ensures that they receive the best possible service."
+                    
                           ]
                 }
             ]
@@ -47,7 +54,7 @@ const data={
                 {
                     "img": "https://www.worth.com/wp-content/uploads/2022/04/thisisengineering-raeng-1sk5Y2MK79Q-unsplash-scaled.jpg",
                     "title": "Products & Accelerators",
-                    "desc": "Converting your ideas or expensive and antiquated digital footprint solutions to future ready digital assets using our productized solutions library for noiseless application in your use cases",
+                    "desc": "Converting your ideas or expensive and antiquated digital footprint solutions to future ready digital assets using our productized solutions library for noiseless",
                     "button": "Learn More"
                 },
                 {
@@ -176,7 +183,7 @@ const data={
             "title":["OUR COMMUNITY"],
             "IMG":["https://img.freepik.com/free-photo/group-graphic-designers-raising-arms_1170-789.jpg?w=360&t=st=1676952468~exp=1676953068~hmac=1267da0d16f511564de581216577966b3838f87e43eabfbff6527cd1596d4d05"],
             "details":[{
-                "heading1":"LIFE AT",
+                "heading1":"Life at",
                  "heading2":"Value health",
                  "desc":"Work Culture at Value Health is like something you haven’t experienced before. You’ll be working and learning at the same time, tackling tougher problems with ease & having fun. Being a workaholic is something we hate to the core. When joining us you feel Happy to the core."
 
@@ -186,6 +193,51 @@ const data={
                          "https://img.freepik.com/free-photo/cheerful-colleagues-enjoying-game-foosball-table_482257-8071.jpg?w=2000",
                         "https://img.freepik.com/free-photo/mixed-team-playing-blocks-wood-game-office_158595-5179.jpg"]          
         }],
+
+
+        "Learn":[{
+            "title":"Life Sciences",
+            "desc":[
+              "We are specialised in building patient services solutions using technologies like Sales Force Health Cloud, bespoke solutions and integration with payers and providers application such as EMR, benefit verification and prior authorization for benefits.",
+              "We help drive life sciences companies in research and development (R&D) by helping them to optimize clinical trials so they can stay ahead of the curve in developing new products and technologies",
+              "We help them embrace digital technology in order to streamline processes, improve data analysis, and accelerate discovery and development.",
+              "Submission of Investigational New Drug (IND) application or NDA to the regulatory agency and managing all ongoing reporting processes for FDA, MHRA and European Agencies. Help companies to meet IDMP standards and provide accurate and complete information on their products to regulatory agencies."
+            ],
+            "img":"https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg?w=2000"
+          
+          },
+          {
+            "title":"Emerging biotech",
+            "desc":[
+              "Our services to emerging biotechnology companies accelerate them to focus on niche areas and aim to disrupt the market with their cutting-edge research and development efforts.",
+              "We partner with leading patient services, logistics, distribution and benefit verification companies to build their commercial strategies and augment with technology to increase the speed to market and reduce cost to market.",
+              "Our Pharma IT in a Box solution allows the emerging biotechnology companies to build a strong technology foundation which can scale as the business scales or sets them apart in their M&A pursuit"
+            ],
+            "img":"https://img.freepik.com/free-photo/portrait-young-handsome-smiling-businessman-holding-laptop-hands-typing-browsing-web-pages-isolated-white-background_1150-63603.jpg"
+          
+          },
+          {
+            "title":"Providers",
+            "desc":[
+              "We work with large independent facilities, medical services groups and DSO (Dental Services Organization).",
+              " We provide state of the art digital front door experience to our customer which helps reduce the operating cost and opens up doors for new patients and provides phenomenal service to patients 24/7 every single day.",
+              "Our SMS based appointment reminder services, referral management, Voice activated front desk service and externalised medical records to patients in a secured way are the few services we are specialised on."
+          
+            ],
+            "img":"https://i.pinimg.com/736x/4c/44/39/4c443992f6106654fc270b3ca708d29e.jpg"
+          
+          },
+          {
+            "title":"Payer",
+            "desc":[
+              "We provide solutions to Insurance companies to reduce their service desk cost by providing the benefit summary to many clearing houses in order to enable electronic benefit ",
+              "verification services and prior authorization services  Our customer development using MERN stack allows payers to provide many bespoke solutions for their customers and agents to seamlessly integrate any workflows such as customer onboarding, claim processing and benefit verification"
+            ],
+            "img":"https://i.pinimg.com/736x/4c/44/39/4c443992f6106654fc270b3ca708d29e.jpg"
+          
+          }
+          ],
+          
 
 
         "Footer":[{
@@ -201,13 +253,15 @@ const data={
         "line3":["© 2022 by Value Health Solutions, Inc"],
         
             "line4":[ {"title":["follow us"],
-             "icons":["https://cdn-icons-png.flaticon.com/128/2168/2168281.png",
+             "icons":["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPqXwTBCx-Z9h1WRw9KqAllI24rvJ2_hEvuVC7sOQ&s",
              "https://cdn-icons-png.flaticon.com/128/733/733614.png",
              "https://cdn-icons-png.flaticon.com/128/733/733635.png"
 
             ]
               }]
         }]
+
+
     }
 }
 
