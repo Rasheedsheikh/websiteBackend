@@ -2,13 +2,27 @@ const data={
     "Total": {
         "Titleimg": "",
         "NavRoutes": [
-            {"name":"Home","path":"/","options":[] },
-            {"name":"Services","path":"#Services","options": ['Digital Transformation Services', 'Products & Accelerators', 'Resource Augmentation']},
-            {"name":"Industries","path":"#Industriess","options": ["Products & Accelerators","Bio technology","Providers","Payers"]},
-            {"name":"Solutions","path":"#Solution","options": ["AI & ML","Health Cloud","MERN"," MULE SOFT", "SALESFORCE","BOT"]},
-            {"name": "Community","path":"#Community","options": []},
-            {"name":"Careers","path":"#career","options": []}
-        ],
+            
+                { "name": "Home", "path": "/", "options": [] },
+                { "name": "Services", "path": "#Services", "options": [{ label: 'Digital Transformation Services', url: "#Services" }, { label: 'Products & Accelerators', url: "#Services" }, { label: 'Resource Augmentation', url: "#Services" }] },
+                {
+                    "name": "Industries", "path": "#Industriess", "options": [{ label: "Products & Accelerators", url: "#Industriess" },
+                    { label: "Bio technology", url: "#Industriess" },
+                    { label: "Providers", url: "#Industriess" },
+                    { label: "Payers", url: "#Industriess" },]
+                },
+                {
+                    "name": "Solutions", "path": "#Solution", "options": [{ label: "AI & ML", url: "#Solution" },
+                    { label: "Health Cloud", url: "#Solution" },
+                    { label: "MERN", url: "#Solution" },
+                    { label: " MULE SOFT", url: "#Solution" },
+                    { label: "SALESFORCE", url: "#Solution" },
+                    { label: "BOT", url: "#Solution" }]
+                },
+                { "name": "Community", "path": "#Community", "options": [] },
+                { "name": "Careers", "path": "#career", "options": [] }
+            ],
+        
         "index":[{
             "title":["The power of", "technology"],
             "video":"https://drive.google.com/drive/folders/1XruERu9trJiJYzlZgHo4CBUG7AGy2n5e"
