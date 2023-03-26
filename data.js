@@ -97,25 +97,37 @@ const data={
                 "desc": "Our services and solutions are tailored towards getting the right patients to the right treatment at the right time by enabling latest and greatest technology to drive better health outcomes for patients"
                       }],
             "Images": [
-                {"img":"https://cnetric.com/wp-content/webpc-passthru.php?src=https://cnetric.com/wp-content/uploads/2022/04/amazon_ai-1024x928.png&nocache=1",
+                {"img":"https://icon-library.com/images/google-icon-svg/google-icon-svg-24.jpg",
                   "title":"AI & ML"
                 },
-                {"img":" https://pbs.twimg.com/profile_images/638954870603558912/4nY5fvXW_400x400.jpg",
+                {"img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/2560px-Salesforce.com_logo.svg.png",
                 
                 "title":"Health Cloud"
                 },
-                {"img":"https://www.varianceinfotech.com/assets/front/images/banner-images/mern-stack-banner-image.png",
+                {"img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/800px-Amazon_Web_Services_Logo.svg.png",
                  "title":"MERN"
                 },
-                {"img":"https://download.logo.wine/logo/MuleSoft/MuleSoft-Logo.wine.png",
+                {"img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Indegene_Logo_png.png/1200px-Indegene_Logo_png.png",
                    "title":"MULE SOFT"
                 },
-                {"img":"https://pbs.twimg.com/profile_images/1268228177815429120/L3AgRFu-_400x400.jpg",
+                {"img":"https://companieslogo.com/img/orig/FIVN-a036d557.png?t=1652256393",
                    "title":"SALESFORCE"
                 },
-                {"img":"https://uploads-ssl.webflow.com/61890b3e10a48b2298b3f94c/61890b3e10a48b007bb3fa87_Group%2027446.png",
+                {"img":"https://findlogovector.com/wp-content/uploads/2018/12/change-healthcare-logo-vector.png",
                   "title":"BOT"
-                }]
+                },
+                {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfY0yK9ZF2WxHhhDHbbNxZo4Q9kkLbIXQ3AQJH_Q1PCg&s",
+                "title":"BOT"
+              },
+              {"img":"https://images.saasworthy.com/tr:w-263,h-0/vonagebusiness_5391_logo_1654072054_n8fvy.jpg",
+              "title":"BOT"
+            },
+            {"img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Syneos_Health_logo.svg/1200px-Syneos_Health_logo.svg.png",
+            "title":"BOT"
+          },
+          {"img":"https://images.techhive.com/images/article/2013/05/jira-100038423-large.jpg",
+          "title":"BOT"
+        }]
                 
         },
         "Testimonials":{
