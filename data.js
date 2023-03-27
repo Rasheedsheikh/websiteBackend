@@ -4,7 +4,7 @@ const data={
         "NavRoutes": [
             
                 { "name": "Home", "path": "/", "options": [] ,"direct":"/"},
-                { "name": "Services", "path": "#Services", "options": [{ label: 'Digital Transformation Services', url: "#Services" }, { label: 'Products & Accelerators', url: "#Services" }, { label: 'Resource Augmentation', url: "#Services" }],"direct":"/" },
+                { "name": "Services", "path": "#Services", "options": [{ label: 'Digital Transformation', url: "#Services" }, { label: 'Products & Accelerators', url: "#Services" }, { label: 'Resource Augmentation', url: "#Services" }],"direct":"/" },
                 {
                     "name": "Industries", "path": "#Industriess", "options": [{ label: "Products & Accelerators", url: "#Industriess" },
                     { label: "Bio technology", url: "#Industriess" },
@@ -50,7 +50,8 @@ const data={
                     "number":"02",
                     "heading": "Products & Accelerators",
                     "desc":["Converting your ideas or expensive and antiquated digital footprint solutions to future ready digital assets",
-                    "Our productized solutions library for noiseless application in your use cases can considerably reduce the implementation cycle time "
+                    "Our productized solutions library for noiseless application in your use cases can considerably reduce the implementation cycle time ",
+                    "Our implementation of clinical solutions such as CTMS and Project Planning tools will help integrate with customer environment seamlessly with their corporate study tracking tools"
                   ]
                 },
                 {
@@ -175,7 +176,7 @@ const data={
             "title":["Why Choose Us"],
             "desc":[{
                 "number":"01",
-                "detail":"Strong domain knowledge in Drug Development and in others areas as well"
+                "detail":"Strong domain knowledge in Drug Development and very strongly in other areas as well"
                
             },
             {
@@ -189,7 +190,7 @@ const data={
             },
                 {
                 "number":"04",
-                "detail":" Proven history of building enterprise level products in drug development industry"
+                "detail":" Proven history of building enterprise level products in drug development industry and testing"
             },
             {
                 "number":"05",
