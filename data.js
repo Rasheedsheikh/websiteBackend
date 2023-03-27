@@ -3,13 +3,14 @@ const data={
         "Titleimg": "",
         "NavRoutes": [
             
-                { "name": "Home", "path": "/", "options": [] },
-                { "name": "Services", "path": "#Services", "options": [{ label: 'Digital Transformation Services', url: "#Services" }, { label: 'Products & Accelerators', url: "#Services" }, { label: 'Resource Augmentation', url: "#Services" }] },
+                { "name": "Home", "path": "/", "options": [] ,"direct":"/"},
+                { "name": "Services", "path": "#Services", "options": [{ label: 'Digital Transformation Services', url: "#Services" }, { label: 'Products & Accelerators', url: "#Services" }, { label: 'Resource Augmentation', url: "#Services" }],"direct":"/" },
                 {
                     "name": "Industries", "path": "#Industriess", "options": [{ label: "Products & Accelerators", url: "#Industriess" },
                     { label: "Bio technology", url: "#Industriess" },
                     { label: "Providers", url: "#Industriess" },
-                    { label: "Payers", url: "#Industriess" },]
+                    { label: "Payers", url: "#Industriess" },],
+                    "direct":"/"
                 },
                 {
                     "name": "Solutions", "path": "#Solution", "options": [{ label: "AI & ML", url: "#Solution" },
@@ -17,10 +18,11 @@ const data={
                     { label: "MERN", url: "#Solution" },
                     { label: " MULE SOFT", url: "#Solution" },
                     { label: "SALESFORCE", url: "#Solution" },
-                    { label: "BOT", url: "#Solution" }]
+                    { label: "BOT", url: "#Solution" }],
+                    "direct":"/"
                 },
-                { "name": "Community", "path": "#Community", "options": [] },
-                { "name": "Careers", "path": "#career", "options": [] }
+                { "name": "Community", "path": "#Community", "options": [] ,"direct":"/"},
+                { "name": "Careers", "path": "#career", "options": [],"direct":"/career" }
             ],
         
         "index":[{
