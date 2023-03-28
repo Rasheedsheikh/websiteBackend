@@ -110,7 +110,7 @@ const data={
                 {"img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/800px-Amazon_Web_Services_Logo.svg.png",
                  "title":"MERN"
                 },
-                {"img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Indegene_Logo_png.png/1200px-Indegene_Logo_png.png",
+                {"img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Indegene_Logo_png.png/640px-Indegene_Logo_png.png",
                    "title":"MULE SOFT"
                 },
                 {"img":"https://companieslogo.com/img/orig/FIVN-a036d557.png?t=1652256393",
@@ -176,7 +176,7 @@ const data={
             "title":["Why Choose Us"],
             "desc":[{
                 "number":"01",
-                "detail":"Strong domain knowledge in Drug Development and very strongly in other areas as well"
+                "detail":"Strong domain knowledge in Drug Development and very strong domain knowledge in other areas as well"
                
             },
             {
@@ -276,7 +276,7 @@ const data={
             "About",
             "Industries",
             "Careers"],
-            "line2":["privacy policy",
+            "line2":["Privacy policy",
         "Terms of use",
         "Cookie settings"],
         "line3":["© 2022 by Value Health Solutions, Inc"],
