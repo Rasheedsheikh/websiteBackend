@@ -14,11 +14,10 @@ const data={
                 },
                 {
                     "name": "Solutions", "path": "#Solution", "options": [{ label: "AI & ML", url: "#Solution" },
-                    { label: "Health Cloud", url: "#Solution" },
-                    { label: "MERN", url: "#Solution" },
-                    { label: " MULE SOFT", url: "#Solution" },
-                    { label: "SALESFORCE", url: "#Solution" },
-                    { label: "BOT", url: "#Solution" }],
+                    { label: "MERN Stack", url: "#Solution" },
+                    { label: " Mule Soft", url: "#Solution" },
+                    { label: "Salesforce", url: "#Solution" },
+                    { label: "BOT Model", url: "#Solution" }],
                     "direct":"/"
                 },
                 { "name": "Community", "path": "#Community", "options": [] ,"direct":"/"},
