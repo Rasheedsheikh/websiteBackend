@@ -41,7 +41,7 @@ const data={
                     "desc":["Provide digital solutions for your company’s needs to create a competitive advantage for your business",
                               "We handle a variety of low-code applications development platforms like Salesforce, Out systems and open source technologies like Node JS, Express Script etc",
                              "Our resources are always available for you to hire and support the platform if desired.",
-                             "We handle a variety of low-code applications development platforms like Salesforce, Out systems and open source technologies like Node JS, Express Script etc"
+                             "We help to adopt digital technologies such as cloud computing, AI/ML, the Internet of Things (IoT), and Blockchain to enhance existing processes or create new ones without breaking their banks through our partners like SalesForce and Google"
 
                   ]
                 },
@@ -69,7 +69,7 @@ const data={
             "insider": [
                 {
                     "img": "https://www.worth.com/wp-content/uploads/2022/04/thisisengineering-raeng-1sk5Y2MK79Q-unsplash-scaled.jpg",
-                    "title": "Products & Accelerators",
+                    "title": "Life Science",
                     "desc": "Converting your ideas or expensive and antiquated digital footprint solutions to future ready digital assets using our productized solutions library for noiseless",
                     "button": "Learn More"
                 },
