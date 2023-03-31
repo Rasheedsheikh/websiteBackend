@@ -1,4 +1,4 @@
-
+const mongoose = require('mongoose');
 const industries = new mongoose.Schema({
 
     heading: { type: Array, required: false },

@@ -6,7 +6,7 @@ const data={
                 { "name": "Home", "path": "/", "options": [] ,"direct":"/"},
                 { "name": "Services", "path": "#Services", "options": [{ label: 'Digital Transformation', url: "#Services" }, { label: 'Products & Accelerators', url: "#Services" }, { label: 'Resource Augmentation', url: "#Services" }],"direct":"/" },
                 {
-                    "name": "Industries", "path": "#Industriess", "options": [{ label: "Products & Accelerators", url: "#Industriess" },
+                    "name": "Industries", "path": "#Industriess", "options": [{ label: "Life Science", url: "#Industriess" },
                     { label: "Bio technology", url: "#Industriess" },
                     { label: "Providers", url: "#Industriess" },
                     { label: "Payers", url: "#Industriess" },],

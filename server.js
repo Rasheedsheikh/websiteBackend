@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 // const {Storage} = require('@google-cloud/storage');
 // import mongoose from "mongoose"
 var cors = require('cors')
-
+const routes = require("./mvc/Routing/index");
 
 dotenv.config()
 const homeh= require('./data')
@@ -166,20 +166,20 @@ const Home = mongoose.model("Home", home)
 
 
 
-const jobs = new mongoose.Schema({
-    email: { type: String, required: false },
-    title: { type: String, required: false },
-    Experience: { type: String, required: false },
-    jobtype: { type: String, required: false },
-    Location: { type: String, required: false },
-    desc: { type: String, required: false },
-    desc2: { type: Array, required: false },
-    jobunction: { type: String, required: false },
-    Schedule: { type: String, required: false },
-    Education: { type: String, required: false },
+// const jobs = new mongoose.Schema({
+//     email: { type: String, required: false },
+//     title: { type: String, required: false },
+//     Experience: { type: String, required: false },
+//     jobtype: { type: String, required: false },
+//     Location: { type: String, required: false },
+//     desc: { type: String, required: false },
+//     desc2: { type: Array, required: false },
+//     jobunction: { type: String, required: false },
+//     Schedule: { type: String, required: false },
+//     Education: { type: String, required: false },
 
-})
-const Jobs = mongoose.model("Jobs", jobs)
+// })
+// const Jobs = mongoose.model("Jobs", jobs)
 
 
 
@@ -192,20 +192,20 @@ const Navbar = mongoose.model("Navbar", navbar)
 
 
 
-const upload = new mongoose.Schema({
+// const upload = new mongoose.Schema({
 
-    FirstName: { type: String, required: true },
-    LastName: { type: String, required: true },
-    Email: { type: String, required: true },
-    MobileNumber: { type: String, required: true },
-    ExperienceInYears: { type: String, required: true },
-    EducationQualification: { type: String, required: true },
-    Resume: { type: String, required: true },
-    jobID: { type: String, required: true }
+//     FirstName: { type: String, required: true },
+//     LastName: { type: String, required: true },
+//     Email: { type: String, required: true },
+//     MobileNumber: { type: String, required: true },
+//     ExperienceInYears: { type: String, required: true },
+//     EducationQualification: { type: String, required: true },
+//     Resume: { type: String, required: true },
+//     jobID: { type: String, required: true }
 
-})
+// })
 
-const Upload = mongoose.model("Upload", upload)
+// const Upload = mongoose.model("Upload", upload)
 
 app.get("/home", async (req, res) => {
     // const home = await Jobs.create(req.body)
@@ -221,37 +221,37 @@ app.get("/homemain", async (req, res) => {
 
 
 
-app.post("/jobs", async (req, res) => {
-    const data = await Jobs.create(req.body)
-    res.send(data)
+// app.post("/jobs", async (req, res) => {
+//     const data = await Jobs.create(req.body)
+//     res.send(data)
 
-})
-app.get("/jobs", async (req, res) => {
-    const data = await Jobs.find({})
-    res.send(data)
+// })
+// app.get("/jobs", async (req, res) => {
+//     const data = await Jobs.find({})
+//     res.send(data)
 
-})
+// })
 
-app.get("/jobs/:id", async (req, res) => {
-    const data = await Jobs.find({ _id: req.params.id })
-    console.log(req)
-    res.send(data)
+// app.get("/jobs/:id", async (req, res) => {
+//     const data = await Jobs.find({ _id: req.params.id })
+//     console.log(req)
+//     res.send(data)
 
-})
+// })
 
-app.post("/upload", async (req, res) => {
-    Upload.create(req.body)
-        .then((data) => {
-            console.log(data)
-            res.send(data)
-        })
-        .catch((err) => {
-            console.log(err)
-            err("fill all fields")
-        })
-    res.send(data)
+// app.post("/upload", async (req, res) => {
+//     Upload.create(req.body)
+//         .then((data) => {
+//             console.log(data)
+//             res.send(data)
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//             err("fill all fields")
+//         })
+//     res.send(data)
 
-})
+// })
 
 app.get("/searchjob", async (req, res) => {
     let sear=req.query.searchTxt;
@@ -378,7 +378,7 @@ app.get("/searchjob", async (req, res) => {
 
 
 const port = process.env.PORT || 2233
-
+app.use('/',routes);
 
 
 app.timeout = 300

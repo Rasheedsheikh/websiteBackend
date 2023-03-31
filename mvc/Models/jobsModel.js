@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const jobs = new mongoose.Schema({
     email: { type: String, required: false },
     title: { type: String, required: false },
@@ -11,4 +12,4 @@ const jobs = new mongoose.Schema({
     Education: { type: String, required: false },
 
 })
-const Jobs = mongoose.model("Jobs", jobs)
+module.exports = mongoose.model("Jobs", jobs)

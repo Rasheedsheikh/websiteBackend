@@ -1,3 +1,4 @@
+ const mongoose = require('mongoose');
  const services= new mongoose.Schema({
 
 
@@ -14,4 +15,4 @@
 
 })
 
-export const Services=mongoose.model("Services",services)
+exports.services=mongoose.model("Services",services)
