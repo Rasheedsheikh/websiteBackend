@@ -15,7 +15,7 @@ const data={
                 {
                     "name": "Solutions", "path": "#Solution", "options": [{ label: "AI & ML", url: "#Solution" },
                     { label: "MERN Stack", url: "#Solution" },
-                    { label: " Mule Soft", url: "#Solution" },
+                    { label: " MuleSoft", url: "#Solution" },
                     { label: "Salesforce", url: "#Solution" },
                     { label: "BOT Model", url: "#Solution" }],
                     "direct":"/"
