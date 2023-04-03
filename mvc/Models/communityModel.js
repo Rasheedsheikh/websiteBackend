@@ -12,4 +12,5 @@ const why= new mongoose.Schema({
 img:{type:Array,required:false},
 
 })
-const Why=mongoose.model("Why",why)
+
+module.exports = mongoose.model("Why",why)

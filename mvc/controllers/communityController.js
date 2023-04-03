@@ -6,8 +6,8 @@ exports. getCommunity= async(req,res)=>{
     res.send(data)
 }
 
-exports. postCommunity= async(req,res)=>{
+exports. createCommunity= async(req,res)=>{
     const data= await Community.create(req.body)
     res.send(data)
 }
-
+  

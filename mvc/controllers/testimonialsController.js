@@ -1,11 +1,11 @@
 const Testimonials= require("../Models/testimonialsModel")
 
-exports.getSlutions= async(req,res)=>{
+exports.getTestimonials= async(req,res)=>{
     const data= await Testimonials.find(req.body)
     res.send(data)
 }
 
-exports.postSolutions= async(req,res)=>{
-    const data= await Testimonials.create(req.body)
+exports.postTestimonials= async(req,res)=>{
+    const data= await Testimonials.(req.body)
     res.send(data)
 }
