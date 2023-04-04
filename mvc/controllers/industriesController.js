@@ -1,12 +1,12 @@
 
-const Industries= require("../Models/industriesModel")
+const {industries}= require("../Models/industriesModel")
 
 exports. getIndustries= async(req,res)=>{
-    const data= await Industries.find(req.body)
+    const data= await industries.find(req.body)
     res.send(data)
 }
 
 exports. postIndustries= async(req,res)=>{
-    const data= await Industries.create(req.body)
+    const data= await industries.create(req.body)
     res.send(data)
 }

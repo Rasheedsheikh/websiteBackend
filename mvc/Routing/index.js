@@ -8,6 +8,8 @@ const jobsController= require("../controllers/jobsController")
 
 const solutionController= require("../controllers/solutionsController");
 const communityController = require('../controllers/communityController');
+const industriesController=require("../controllers/industriesController")
+const testimonialsController= require("../controllers/testimonialsController")
 // const authRoutes = require('./routes/auth');
 // app.use('/api/auth', authRoutes);
 
@@ -20,12 +22,17 @@ routes.post("/post-service", serviceController.createService)
 routes.get("/get-solutions", solutionController.getSolutions)
 // jobs
 routes.get("/get-jobs", jobsController.getJobs)
-routes.get("./jobsById",jobsController.getJobsById)
+routes.get("/jobsById",jobsController.getJobsById)
 // community
-routes.get("./get-community", communityController.getCommunity)
+routes.get("/get-community", communityController.getCommunity)
 routes.post("/post-community", communityController.createCommunity)
 
+// industries
 
+routes.post("/post-industries", industriesController.postIndustries)
+
+// testimonials
+routes.post("/post-testimonials", testimonialsController.postTestimonials)
 // apply(upload)
 routes.post("/post-upload", uploadController.postUpload)
 

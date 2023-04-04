@@ -12,4 +12,4 @@ const industries = new mongoose.Schema({
 
 
 })
-exports.Industries  = mongoose.model("Industries", industries)
+exports.industries  = mongoose.model("Industries", industries)

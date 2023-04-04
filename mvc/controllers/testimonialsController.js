@@ -1,4 +1,4 @@
-const Testimonials= require("../Models/testimonialsModel")
+const {Testimonials}= require("../Models/testimonialsModel")
 
 exports.getTestimonials= async(req,res)=>{
     const data= await Testimonials.find(req.body)
@@ -6,6 +6,6 @@ exports.getTestimonials= async(req,res)=>{
 }
 
 exports.postTestimonials= async(req,res)=>{
-    const data= await Testimonials.(req.body)
+    const data= await Testimonials.create(req.body)
     res.send(data)
 }

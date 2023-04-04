@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const why= new mongoose.Schema({
+const community= new mongoose.Schema({
 
 
     title:{type:Array,required:false},
@@ -10,7 +10,6 @@ const why= new mongoose.Schema({
 ],
 
 img:{type:Array,required:false},
-
 })
 
-module.exports = mongoose.model("Why",why)
+exports.community= mongoose.model("Community",community)

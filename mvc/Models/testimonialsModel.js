@@ -17,4 +17,4 @@ const testimonials = new mongoose.Schema({
 
 
 })
-const Testimonials = mongoose.model("Testimonials", testimonials)
+exports.Testimonials = mongoose.model("Testimonials", testimonials)

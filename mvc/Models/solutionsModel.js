@@ -13,7 +13,7 @@ const solutions = new mongoose.Schema({
     Images: [{
         
             img: { type: String, required: false },
-            title: { type: String, required: false },
+            
 
         }]
     
@@ -22,4 +22,4 @@ const solutions = new mongoose.Schema({
     })
 
 
-const Solutions = mongoose.model("Solutions", solutions)
+    exports.solutions = mongoose.model("Solutions", solutions)
