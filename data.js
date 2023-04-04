@@ -80,7 +80,7 @@ const data = {
                 {
                     "img": "https://images.unsplash.com/photo-1521790797524-b2497295b8a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80",
                     "title": "Providers",
-                    "desc": "We provide solutions to Insurance companies to reduce their service desk cost by providing the benefit summary to many clearing houses in order to enable electronic benefit",
+                    "desc": "We provide solutions to Insurance companies to reduce their service desk cost by providing the benefit summary to many clearing houses in order to enable electronic benefit solutions",
                     "button": "Learn More"
                 },
                 {
