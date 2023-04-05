@@ -13,14 +13,14 @@ const data = {
                 "direct": "/"
             },
             {
-                "name": "Solutions", "path": "#Solution", "options": [{ label: "AI & ML", url: "/sol" },
-                { label: "Fullstack Development", url: "/sol" },
-                { label: "Salesforce", url: "/sol" },
-                { label: "BOT Model", url: "/sol" }],
+                "name": "Solutions", "path": "#Solution", "options": [{ label: "AI & ML", url: "/solm" },
+                { label: "Fullstack Development", url: "/solm" },
+                { label: "Salesforce", url: "/solm" },
+                { label: "BOT Model", url: "/solm" }],
                 "direct": "/"
             },
             { "name": "Community", "path": "#Community", "options": [], "direct": "/" },
-            { "name": "Careers", "path": "#career", "options": [], "direct": "/career" }
+            { "name": "Careers", "path": "#career", "options": [], "direct": "/careerm" }
         ],
 
         "index": [{
@@ -276,11 +276,11 @@ const data = {
 
         "Footer": [{
             "line1": [
-                "About",
-                "Services",
-                "Solutions",
-                "Industries",
-                "Careers"],
+                {"name":"About","path":"/"},
+                {"name":"Services", "path":"#Services"},
+               {"name": "Solutions", "path":"#Solution"},
+               {"name":"Industries", "path":"#Industriess"},
+               {"name": "Careers","path":"/career"}],
             "line2": ["Privacy policy",
                 "Terms of use",
                 "Cookie settings"],
@@ -288,9 +288,9 @@ const data = {
 
             "line4": [{
                 "title": ["follow us"],
-                "icons": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPqXwTBCx-Z9h1WRw9KqAllI24rvJ2_hEvuVC7sOQ&s",
-                    "https://cdn-icons-png.flaticon.com/128/733/733614.png",
-                    "https://cdn-icons-png.flaticon.com/128/733/733635.png"
+                "icons": ["https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-linkedin-3.png",
+                    "https://seeklogo.com/images/F/facebook-icon-black-logo-133935095E-seeklogo.com.png",
+                    "https://cdn-icons-png.flaticon.com/512/25/25347.png"
 
                 ]
             }]
