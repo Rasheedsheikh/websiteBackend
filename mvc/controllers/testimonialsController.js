@@ -7,5 +7,6 @@ exports.getTestimonials= async(req,res)=>{
 
 exports.postTestimonials= async(req,res)=>{
     const data= await Testimonials.create(req.body)
+    console.log(req.body)
     res.send(data)
 }

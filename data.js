@@ -13,10 +13,12 @@ const data = {
                 "direct": "/"
             },
             {
-                "name": "Solutions", "path": "#Solution", "options": [{ label: "AI & ML", url: "/solm" },
-                { label: "Fullstack Development", url: "/solm" },
-                { label: "Salesforce", url: "/solm" },
-                { label: "BOT Model", url: "/solm" }],
+                "name": "Solutions", "path": "#Solution", "options": [
+                    { label: "Salesforce", url: "/solm" },
+                    { label: "AI & ML", url: "/ai&ml" },
+                    { label: "Fullstack Development", url: "/fullstack" },
+
+                    { label: "BOT Model", url: "/bot" }],
                 "direct": "/"
             },
             { "name": "Community", "path": "#Community", "options": [], "direct": "/" },
@@ -100,12 +102,12 @@ const data = {
             "Images": [
                 {
                     "img": "https://icon-library.com/images/google-icon-svg/google-icon-svg-24.jpg"
-                
+
                 },
                 {
                     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/2560px-Salesforce.com_logo.svg.png"
 
-                    
+
                 },
                 {
                     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/800px-Amazon_Web_Services_Logo.svg.png"
@@ -276,11 +278,11 @@ const data = {
 
         "Footer": [{
             "line1": [
-                {"name":"About","path":"/"},
-                {"name":"Services", "path":"#Services"},
-               {"name": "Solutions", "path":"#Solution"},
-               {"name":"Industries", "path":"#Industriess"},
-               {"name": "Careers","path":"/career"}],
+                "About",
+                "Services",
+                "Solutions",
+                "Industries",
+                "Careers"],
             "line2": ["Privacy policy",
                 "Terms of use",
                 "Cookie settings"],

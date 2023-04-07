@@ -3,6 +3,7 @@ const { services } = require("../Models/servicesModel")
 
 exports.getService = async (req, res) => {
     const data = await services.find(req.body)
+    // console.log({data});
     res.send(data)
 }
 

@@ -33,6 +33,7 @@ routes.post("/post-industries", industriesController.postIndustries)
 
 // testimonials
 routes.post("/post-testimonials", testimonialsController.postTestimonials)
+routes.get("/get-testimonials",testimonialsController.getTestimonials)
 // apply(upload)
 routes.post("/post-upload", uploadController.postUpload)
 
