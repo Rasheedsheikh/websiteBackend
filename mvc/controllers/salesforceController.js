@@ -1,7 +1,7 @@
 const {solutionSalesforce}= require("../Models/solutionsalesforceModel")
 
 exports. getSalesforce= async(req,res)=>{
-    const data= await solutionSalesforce.find()
+    const data= await solutionSalesforce.find( )
     res.send(data)
 }
 
