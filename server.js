@@ -34,133 +34,133 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(express.static('public'))
 
 
-const home = new mongoose.Schema({
-    Titleimg :{type: String,required:false},
-    NavRoutes:{type: Array,required:false},
-     Services:  {type:{ 
-        what:[{
-            title:{type: String,required:false},
-            desc:{type: String,required:false},
-        }],
-        shapes:[{
-            number:{type: String,required:false},
-            heading:{type: String,required:false},
-            desc:{type: Array,required:false},
-        },
-        {
-            number:{type: String,required:false},
-            heading:{type: String,required:false},
-            desc:{type: Array,required:false},
-        },
-        {
-            number:{type: String,required:false},
-            heading:{type: String,required:false},
-            desc:{type: Array,required:false},
-        }]
-    },required:false},
+// const home = new mongoose.Schema({
+//     Titleimg :{type: String,required:false},
+//     NavRoutes:{type: Array,required:false},
+//      Services:  {type:{ 
+//         what:[{
+//             title:{type: String,required:false},
+//             desc:{type: String,required:false},
+//         }],
+//         shapes:[{
+//             number:{type: String,required:false},
+//             heading:{type: String,required:false},
+//             desc:{type: Array,required:false},
+//         },
+//         {
+//             number:{type: String,required:false},
+//             heading:{type: String,required:false},
+//             desc:{type: Array,required:false},
+//         },
+//         {
+//             number:{type: String,required:false},
+//             heading:{type: String,required:false},
+//             desc:{type: Array,required:false},
+//         }]
+//     },required:false},
 
-    Industries:{type:{
-        heading:{type: Array,required:false},
-        insider:{type:[{
-            img:{type: String,required:false},
-            title:{type: String,required:false},
-            desc:{type: String,required:false},
-            button:{type: String,required:false}
-        }],required:false}
-    },required:false}, 
+//     Industries:{type:{
+//         heading:{type: Array,required:false},
+//         insider:{type:[{
+//             img:{type: String,required:false},
+//             title:{type: String,required:false},
+//             desc:{type: String,required:false},
+//             button:{type: String,required:false}
+//         }],required:false}
+//     },required:false}, 
 
-    Solutions:{
-        heading:{type:[{
-            title:{type: String,required:false},
-            desc:{type: String,required:false},
-        }],required:false},
-        Images:{type:[{
-            img:{type: String,required:false},
-            title:{type: String,required:false},
+//     Solutions:{
+//         heading:{type:[{
+//             title:{type: String,required:false},
+//             desc:{type: String,required:false},
+//         }],required:false},
+//         Images:{type:[{
+//             img:{type: String,required:false},
+//             title:{type: String,required:false},
 
-        },
-        {
-            img:{type: String,required:false},
-            title:{type: String,required:false},
+//         },
+//         {
+//             img:{type: String,required:false},
+//             title:{type: String,required:false},
 
-        },
-        {
-            img:{type: String,required:false},
-            title:{type: String,required:false},
+//         },
+//         {
+//             img:{type: String,required:false},
+//             title:{type: String,required:false},
 
-        },
-        {
-            img:{type: String,required:false},
-            title:{type: String,required:false},
+//         },
+//         {
+//             img:{type: String,required:false},
+//             title:{type: String,required:false},
 
-        }]
-    },required:false},
+//         }]
+//     },required:false},
 
-    Testimonials:{type:{
-        main:[{
-            title:{type:Array,required:false},
-            img:{type:Array,required:false},
+//     Testimonials:{type:{
+//         main:[{
+//             title:{type:Array,required:false},
+//             img:{type:Array,required:false},
 
-            slide:[{
-                 desc:{type:String,required:false},
-                 name:{type:String,required:false},
-                 role:{type:String,required:false},
-                 at:{type:String,required:false},
-            },
-            {
-                desc:{type:String,required:false},
-                name:{type:String,required:false},
-                role:{type:String,required:false},
-                at:{type:String,required:false},
-           },
-           {
-            desc:{type:String,required:false},
-            name:{type:String,required:false},
-            role:{type:String,required:false},
-            at:{type:String,required:false},
-       },
-        ]
-        }]
-    },
-    contact:[{
-        title:{type:Array,required:false},
-        quote:[{
-              line1:{type:String,required:false},
-              line2:{type:String,required:false},
-              Email:{type:String,required:false},
-              telephone:{type:String,required:false}
-        }]
-    }],
-    why:[{
-        title:{type:Array,required:false},
-        desc:[{
-            number:{type:String,required:false},
-            detail:{type:String,required:false},
-        },
-        {
-            number:{type:String,required:false},
-            detail:{type:String,required:false},
-        },
-        {
-            number:{type:String,required:false},
-            detail:{type:String,required:false},
-        },{
-            number:{type:String,required:false},
-            detail:{type:String,required:false},
-        },
-        {
-            number:{type:String,required:false},
-            detail:{type:String,required:false},
-        }],
+//             slide:[{
+//                  desc:{type:String,required:false},
+//                  name:{type:String,required:false},
+//                  role:{type:String,required:false},
+//                  at:{type:String,required:false},
+//             },
+//             {
+//                 desc:{type:String,required:false},
+//                 name:{type:String,required:false},
+//                 role:{type:String,required:false},
+//                 at:{type:String,required:false},
+//            },
+//            {
+//             desc:{type:String,required:false},
+//             name:{type:String,required:false},
+//             role:{type:String,required:false},
+//             at:{type:String,required:false},
+//        },
+//         ]
+//         }]
+//     },
+//     contact:[{
+//         title:{type:Array,required:false},
+//         quote:[{
+//               line1:{type:String,required:false},
+//               line2:{type:String,required:false},
+//               Email:{type:String,required:false},
+//               telephone:{type:String,required:false}
+//         }]
+//     }],
+//     why:[{
+//         title:{type:Array,required:false},
+//         desc:[{
+//             number:{type:String,required:false},
+//             detail:{type:String,required:false},
+//         },
+//         {
+//             number:{type:String,required:false},
+//             detail:{type:String,required:false},
+//         },
+//         {
+//             number:{type:String,required:false},
+//             detail:{type:String,required:false},
+//         },{
+//             number:{type:String,required:false},
+//             detail:{type:String,required:false},
+//         },
+//         {
+//             number:{type:String,required:false},
+//             detail:{type:String,required:false},
+//         }],
    
-    img:{type:Array,required:false},
-}],
-    required:false}
+//     img:{type:Array,required:false},
+// }],
+//     required:false}
 
 
 
-})
-const Home = mongoose.model("Home", home)
+// })
+// const Home = mongoose.model("Home", home)
 
 
 
@@ -183,12 +183,12 @@ const Home = mongoose.model("Home", home)
 
 
 
-const navbar = new mongoose.Schema({
-    NavRoutes:{type: Array,required:false},
+// const navbar = new mongoose.Schema({
+//     NavRoutes:{type: Array,required:false},
  
 
-})
-const Navbar = mongoose.model("Navbar", navbar)
+// })
+// const Navbar = mongoose.model("Navbar", navbar)
 
 
 
