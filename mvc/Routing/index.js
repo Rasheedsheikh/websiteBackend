@@ -13,7 +13,7 @@ const testimonialsController= require("../controllers/testimonialsController")
 const contactController=require("../controllers/contactController")
 const whychooseController=require("../controllers/whychooseController")
 
-// const salesforceController=require("../controllers/salesforceController")
+const salesforceController=require("../controllers/salesforceController")
 
 // const authRoutes = require('./routes/auth');
 // app.use('/api/auth', authRoutes);
@@ -50,8 +50,8 @@ routes.post("/post-whychoose", whychooseController.createChoose)
 routes.get("/get-whychoose", whychooseController.getChoose)
 
 // salesforce
-// routes.post("/post-salesforce",salesforceController.postSalesforce)
-// routes.get("/get-salesforce",salesforceController.getSalesforce)
+routes.post("/post-salesforce",salesforceController.postSalesforce)
+routes.get("/get-salesforce",salesforceController.getSalesforce)
 
 
 // apply(upload)
