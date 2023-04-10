@@ -2,7 +2,7 @@
 const {industries}= require("../Models/industriesModel")
 
 exports. getIndustries= async(req,res)=>{
-    const data= await industries.find(req.body)
+    const data= await industries.find()
     res.send(data)
 }
 

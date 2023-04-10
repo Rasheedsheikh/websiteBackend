@@ -3,13 +3,16 @@ const community= new mongoose.Schema({
 
 
     title:{type:Array,required:false},
-    desc:[{
-        number:{type:String,required:false},
-        detail:{type:String,required:false},
+    IMG:{type:Array,required:false},
+    details:[{
+        heading1:{type:String,required:false},
+        heading2:{type:String,required:false},
+        desc:{type:String,required:false},
     }
 ],
 
-img:{type:Array,required:false},
+images:{type:Array,required:false},
 })
 
 exports.community= mongoose.model("Community",community)
+

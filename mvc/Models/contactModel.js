@@ -5,9 +5,16 @@ const contact= new mongoose.Schema({
         quote:[{
               line1:{type:String,required:false},
               line2:{type:String,required:false},
-              Email:{type:String,required:false},
-              telephone:{type:String,required:false}
+            
+        }],
+        address:[{
+            line1:{type:String,required:false},
+            line2:{type:String,required:false},
+            Email:{type:String,required:false},
+            telephone:{type:String,required:false}
         }]
   
 })
-const Contact=mongoose.model("Contact",contact)
+exports.contact=mongoose.model("Contact",contact)
+
+

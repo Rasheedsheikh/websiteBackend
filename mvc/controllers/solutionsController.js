@@ -1,7 +1,7 @@
 const {solutions}= require( "../Models/solutionsModel")
 
 exports.getSolutions= async(req,res)=>{
-    const data= await solutions.find(req.body)
+    const data= await solutions.find()
     res.send(data)
 }
 

@@ -2,7 +2,7 @@
 const {community}= require("../Models/communityModel")
 
 exports. getCommunity= async(req,res)=>{
-    const data= await community.find(req.body)
+    const data= await community.find()
     res.send(data)
 }
 
