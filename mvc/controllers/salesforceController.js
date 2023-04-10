@@ -1,4 +1,4 @@
-const {solutionSalesforce}= require("../Models/solutionsalesforceModel")
+const {solutionSalesforce}= require("../Models/solutionSalesforceModel")
 
 exports. getSalesforce= async(req,res)=>{
     const data= await solutionSalesforce.find( )
