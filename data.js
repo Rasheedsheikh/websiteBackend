@@ -18,7 +18,7 @@ const data = {
                     { label: "AI & ML", url: "/ai&ml" },
                     { label: "Fullstack Development", url: "/fullstack" },
 
-                    { label: "BOT Model", url: "/bot" }],
+                    { label: "BOT Model", url: "/bot" }], 
                 "direct": "/"
             },
             { "name": "Community", "path": "#Community", "options": [], "direct": "/" },
