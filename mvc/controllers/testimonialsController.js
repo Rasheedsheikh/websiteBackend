@@ -2,7 +2,7 @@ const {Testimonials}= require("../Models/testimonialsModel")
 
 exports.getTestimonials= async(req,res)=>{
     const data= await Testimonials.find()
-    console.log({data: req.body})
+    // console.log({data: req.body})
     res.send(data)
 }
 
