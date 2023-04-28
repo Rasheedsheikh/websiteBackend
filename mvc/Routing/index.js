@@ -15,7 +15,7 @@ const whychooseController=require("../controllers/whychooseController")
 
 const salesforceController=require("../controllers/salesforceController");
 // const { postMail } = require('../controllers/emailController');
-const emailController=require("../controllers/emailController");
+// const emailController=require("../controllers/emailController");
 const adminLoginController = require('../controllers/adminLoginController');
 
 
@@ -53,6 +53,7 @@ routes.get("/:id/insider/:insiderId",industriesController.findInsiderById)
 routes.post("/post-testimonials", testimonialsController.postTestimonials)
 routes.get("/get-testimonials",testimonialsController.getTestimonials)
 routes.get("/:id/slide/:slideId",testimonialsController.findTestimoById)
+routes.patch("/testimonials/:id",testimonialsController.patchTestimonials)
 
 // contact
 routes.post("/post-contact", contactController.postContact)
@@ -73,7 +74,7 @@ routes.get("/get-salesforce",salesforceController.getSalesforce)
 routes.post("/post-upload", uploadController.postUpload)
 
 //email
-routes.post("/post-email",emailController.postMail)
+// routes.post("/post-email",emailController.postMail)
 // adminlogin
 
 // routes.post("/post-user", adminLoginController.postUser)
