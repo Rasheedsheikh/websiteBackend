@@ -14,9 +14,7 @@ const contactController=require("../controllers/contactController")
 const whychooseController=require("../controllers/whychooseController")
 
 const salesforceController=require("../controllers/salesforceController");
-// const { postMail } = require('../controllers/emailController');
-// const emailController=require("../controllers/emailController");
-const adminLoginController = require('../controllers/adminLoginController');
+
 
 
 // const authRoutes = require('./routes/auth');
@@ -78,7 +76,7 @@ routes.post("/post-upload", uploadController.postUpload)
 // adminlogin
 
 // routes.post("/post-user", adminLoginController.postUser)
-routes.get("/get-user", adminLoginController.getUser)
+// routes.get("/get-user", adminLoginController.getUser)
 
 
 
