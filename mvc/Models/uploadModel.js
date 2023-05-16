@@ -12,4 +12,4 @@ const upload = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("Upload", upload)
+exports.upload = mongoose.model("Upload", upload)

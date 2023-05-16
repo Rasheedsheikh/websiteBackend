@@ -56,17 +56,17 @@ exports.patchServices = async (req, res) => {
     console.log(shapesId)
 console.log(req.body)
 
-    let queryObj = { _id: mongoose.Types.ObjectId("642a6e7ab094df34743e2c1d"), "shapes._id": mongoose.Types.ObjectId(shapesId) }
+    let queryObj = { _id: mongoose.Types.ObjectId("6450fefe2dbe73a9c4980f8b"), "shapes._id": mongoose.Types.ObjectId(shapesId) }
 
     console.log(queryObj)
 
 
-    const index = 0;
+    // const index = 0;
     let updateObj = {
         $set: {
             "shapes.$.heading": heading,
         // "shapes.$.desc": ["xyz",""]
-        "shapes.$.desc.0": desc[0],
+            "shapes.$.desc.0": desc[0],
             "shapes.$.desc.1": desc[1],
             "shapes.$.desc.2": desc[2]
          

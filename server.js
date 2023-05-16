@@ -1,14 +1,18 @@
 const dotenv = require("dotenv")
 const express = require("express")
 const mongoose = require("mongoose")
-// const Multer = require('multer');
-// const {Storage} = require('@google-cloud/storage');
+const Multer = require('multer');
+const {Storage} = require('@google-cloud/storage');
+const {format} = require('util');
+
+
 // import mongoose from "mongoose"
 var cors = require('cors')
 const routes = require("./mvc/Routing/index");
 
 dotenv.config()
-const homeh= require('./data')
+const homeh= require('./data');
+const { patchIndustriesimg } = require("./mvc/controllers/industriesController");
 
 const app = express()
 app.use(
@@ -18,7 +22,7 @@ app.use(
 )
 app.use(express.json())
 
-const {MONGODB_QUERY,MONGODB_NAME,MONGODB_URI}=process.env
+const {MONGODB_QUERY,MONGODB_NAME,MONGODB_URI,GCP_BUCKET_NAME,GOOGLE_APPLICATION_CREDENTIALS,NODE_ENV}=process.env
 const URI = `${MONGODB_URI}/${MONGODB_NAME}${MONGODB_QUERY}`;
 
 console.log(URI)
@@ -31,181 +35,7 @@ const connect = () => {
 
 app.use(express.urlencoded({ extended: false }));
 
-//app.use(express.static('public'))
 
-
-// const home = new mongoose.Schema({
-//     Titleimg :{type: String,required:false},
-//     NavRoutes:{type: Array,required:false},
-//      Services:  {type:{ 
-//         what:[{
-//             title:{type: String,required:false},
-//             desc:{type: String,required:false},
-//         }],
-//         shapes:[{
-//             number:{type: String,required:false},
-//             heading:{type: String,required:false},
-//             desc:{type: Array,required:false},
-//         },
-//         {
-//             number:{type: String,required:false},
-//             heading:{type: String,required:false},
-//             desc:{type: Array,required:false},
-//         },
-//         {
-//             number:{type: String,required:false},
-//             heading:{type: String,required:false},
-//             desc:{type: Array,required:false},
-//         }]
-//     },required:false},
-
-//     Industries:{type:{
-//         heading:{type: Array,required:false},
-//         insider:{type:[{
-//             img:{type: String,required:false},
-//             title:{type: String,required:false},
-//             desc:{type: String,required:false},
-//             button:{type: String,required:false}
-//         }],required:false}
-//     },required:false}, 
-
-//     Solutions:{
-//         heading:{type:[{
-//             title:{type: String,required:false},
-//             desc:{type: String,required:false},
-//         }],required:false},
-//         Images:{type:[{
-//             img:{type: String,required:false},
-//             title:{type: String,required:false},
-
-//         },
-//         {
-//             img:{type: String,required:false},
-//             title:{type: String,required:false},
-
-//         },
-//         {
-//             img:{type: String,required:false},
-//             title:{type: String,required:false},
-
-//         },
-//         {
-//             img:{type: String,required:false},
-//             title:{type: String,required:false},
-
-//         }]
-//     },required:false},
-
-//     Testimonials:{type:{
-//         main:[{
-//             title:{type:Array,required:false},
-//             img:{type:Array,required:false},
-
-//             slide:[{
-//                  desc:{type:String,required:false},
-//                  name:{type:String,required:false},
-//                  role:{type:String,required:false},
-//                  at:{type:String,required:false},
-//             },
-//             {
-//                 desc:{type:String,required:false},
-//                 name:{type:String,required:false},
-//                 role:{type:String,required:false},
-//                 at:{type:String,required:false},
-//            },
-//            {
-//             desc:{type:String,required:false},
-//             name:{type:String,required:false},
-//             role:{type:String,required:false},
-//             at:{type:String,required:false},
-//        },
-//         ]
-//         }]
-//     },
-//     contact:[{
-//         title:{type:Array,required:false},
-//         quote:[{
-//               line1:{type:String,required:false},
-//               line2:{type:String,required:false},
-//               Email:{type:String,required:false},
-//               telephone:{type:String,required:false}
-//         }]
-//     }],
-//     why:[{
-//         title:{type:Array,required:false},
-//         desc:[{
-//             number:{type:String,required:false},
-//             detail:{type:String,required:false},
-//         },
-//         {
-//             number:{type:String,required:false},
-//             detail:{type:String,required:false},
-//         },
-//         {
-//             number:{type:String,required:false},
-//             detail:{type:String,required:false},
-//         },{
-//             number:{type:String,required:false},
-//             detail:{type:String,required:false},
-//         },
-//         {
-//             number:{type:String,required:false},
-//             detail:{type:String,required:false},
-//         }],
-   
-//     img:{type:Array,required:false},
-// }],
-//     required:false}
-
-
-
-// })
-// const Home = mongoose.model("Home", home)
-
-
-
-
-
-// const jobs = new mongoose.Schema({
-//     email: { type: String, required: false },
-//     title: { type: String, required: false },
-//     Experience: { type: String, required: false },
-//     jobtype: { type: String, required: false },
-//     Location: { type: String, required: false },
-//     desc: { type: String, required: false },
-//     desc2: { type: Array, required: false },
-//     jobunction: { type: String, required: false },
-//     Schedule: { type: String, required: false },
-//     Education: { type: String, required: false },
-
-// })
-// const Jobs = mongoose.model("Jobs", jobs)
-
-
-
-// const navbar = new mongoose.Schema({
-//     NavRoutes:{type: Array,required:false},
- 
-
-// })
-// const Navbar = mongoose.model("Navbar", navbar)
-
-
-
-// const upload = new mongoose.Schema({
-
-//     FirstName: { type: String, required: true },
-//     LastName: { type: String, required: true },
-//     Email: { type: String, required: true },
-//     MobileNumber: { type: String, required: true },
-//     ExperienceInYears: { type: String, required: true },
-//     EducationQualification: { type: String, required: true },
-//     Resume: { type: String, required: true },
-//     jobID: { type: String, required: true }
-
-// })
-
-// const Upload = mongoose.model("Upload", upload)
 
 app.get("/home", async (req, res) => {
     // const home = await Jobs.create(req.body)
@@ -239,19 +69,6 @@ app.get("/homemain", async (req, res) => {
 
 // })
 
-// app.post("/upload", async (req, res) => {
-//     Upload.create(req.body)
-//         .then((data) => {
-//             console.log(data)
-//             res.send(data)
-//         })
-//         .catch((err) => {
-//             console.log(err)
-//             err("fill all fields")
-//         })
-//     res.send(data)
-
-// })
 
 app.get("/searchjob", async (req, res) => {
     let sear=req.query.searchTxt;
@@ -310,32 +127,103 @@ app.get("/searchjob", async (req, res) => {
 
 // })
 
-// app.post('/fileUpload', async(req,res)=>{
+const multer = Multer({
+      storage: Multer.memoryStorage(),
+      limits: {
+        fileSize: 100 * 1024 * 1024, 
+      },
+    });
+
+// app.post('/fileUpload', multer.single('file'), async(req,res)=>{
 //     console.log(req );
-//     res.send(req)
-//     const bucketName = "urgentcare-forms-demo";
-//     const fileName = params.fileName;
-//     const fileType = params.fileType;
+
+//     // const bucketName = process.env.GCP_BUCKET_NAME;
+//     // const fileName = req.file.originalname;
+//     // projectId: "urgent-care-306805";
+//     const cloudStorage = new Storage({
+//       // keyFilename: `${__dirname}/service_account_key.json`,
+//       projectId: "urgent-care-306805",
+//        bucketName : process.env.GCP_BUCKET_NAME,
+//      fileName : req.file.originalname,
+//     });
+
 //     const options = {
 //       version: 'v4',
 //       action: 'write',
 //       expires: Date.now() + 15 * 60 * 1000,
-//       contentType: fileType,
+//       contentType: req.file.mimetype,
 //     };
 
 //     const [url] = await storage
 //       .bucket(bucketName)
 //       .file(fileName)
 //       .getSignedUrl(options);
-//     console.log({ bucketName, fileName, url });
-//     return {
+//     // console.log({ bucketName, fileName, url });
+
+//     res.status(200).send({
 //       signedRequest: url,
 //       url: `https://storage.googleapis.com/${bucketName}/${fileName}`,
-//     };
+//     })
 
 
 //   }
 // )
+
+
+const cloudStorage = new Storage({
+  // keyFilename: `${__dirname}/service_account_key.json`,
+  projectId: "urgent-care-306805",
+});
+const bucketName = "urgentcare-forms-demo";
+const bucket = cloudStorage.bucket(bucketName);
+app.post("/fileupload", multer.single("file"), function (req, res, next) {
+
+//  var arr =[
+//   "industry"
+//  ]
+const insiderId=req.params.id
+  console.log(req.id)
+  console.log(req.file);
+  console.log(req.body)
+  if (!req.file) {
+    res.status(400).send("No file uploaded.");
+    return;
+  }
+  const blob = bucket.file(req.file.originalname);
+  const blobStream = blob.createWriteStream();
+  blobStream.on("error", (err) => {
+    next(err);
+  });
+  blobStream.on("finish", () => {
+    // The public URL can be used to directly access the file via HTTP.
+    const publicUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
+
+    let queryObj = { _id: mongoose.Types.ObjectId("64468f679bb39d6dc38af1fa"), "insider._id": mongoose.Types.ObjectId(insiderId) }
+
+    console.log(queryObj)
+
+    let updateObj = {
+        $set: {
+            // "insider.$.title": title,
+            // "insider.$.desc": desc,
+            // "insider.$.button": button,
+            "insider.$.img": publicUrl
+        }
+    }
+    let item =  industries.findOneAndUpdate(queryObj, updateObj, { new: true })
+    res.send(item)
+    console.log(item,updateObj)
+
+
+    // if (res) {
+    //   patchIndustriesimg
+    // }
+    res.status(200).json({ publicUrl });
+
+  });
+  blobStream.end(req.file.buffer);
+  
+});
 // const multer = Multer({
 //     storage: Multer.memoryStorage(),
 //     limits: {
@@ -358,13 +246,11 @@ app.get("/searchjob", async (req, res) => {
    
 //     const blob = bucket.file(req.file.originalname);
 //     const blobStream = blob.createWriteStream();
-  
 //     blobStream.on('error', err => {
 //       next(err);
 //     });
   
 //     blobStream.on('finish', () => {
-     
 //       const publicUrl = format(
 //         `https://storage.googleapis.com/${bucket.name}/${blob.name}`
 //       );
@@ -375,6 +261,113 @@ app.get("/searchjob", async (req, res) => {
 //   });
   
 
+
+
+
+// Instantiate a storage client
+// const storage = new Storage();
+
+// app.set('view engine', 'pug');
+
+// // This middleware is available in Express v4.16.0 onwards
+// app.use(express.json());
+
+// Multer is required to process file uploads and make them available via
+// req.files.
+// const multer = Multer({
+//   storage: Multer.memoryStorage(),
+//   limits: {
+//     fileSize: 5 * 1024 * 1024, // no larger than 5mb, you can change as needed.
+//   },
+// });
+
+// A bucket is a container for objects (files).
+//  const bucket = storage.bucket(process.env.GCP_BUCKET_NAME);
+
+// // Display a form for uploading files.
+// app.get('/', (req, res) => {
+//   res.render('form.pug');
+// });
+
+// Process the file upload and upload to Google Cloud Storage.
+// app.post('/upload', multer.single('file'), (req, res, next) => {
+//   if (!req.file) {
+//     res.status(400).send('No file uploaded.');
+//     return;
+//   }
+
+//   // Create a new blob in the bucket and upload the file data.
+//   const blob = bucket.file(req.file.originalname);
+//   const blobStream = blob.createWriteStream();
+
+//   blobStream.on('error', err => {
+//     next(err);
+//   });
+
+//   blobStream.on('finish', () => {
+//     // The public URL can be used to directly access the file via HTTP.
+//     const publicUrl = format(
+//       `https://storage.googleapis.com/${urgentcare-forms-demo}/${blob.name}`
+//     );
+//     res.status(200).send(publicUrl);
+//   });
+
+//   blobStream.end(req.file.buffer);
+// });
+
+
+// const storage = new Storage({
+//   projectId: 'YOUR_PROJECT_ID',
+//   keyFilename: 'GCPCREDENTIALS.json'
+// });
+
+// app.set('view engine', 'pug');
+
+// // This middleware is available in Express v4.16.0 onwards
+// app.use(express.json());
+
+// // Multer is required to process file uploads and make them available via
+// // req.files.
+// const multer = Multer({
+//   storage: Multer.memoryStorage(),
+//   limits: {
+//     fileSize: 5 * 1024 * 1024, // no larger than 5mb, you can change as needed.
+//   },
+// });
+
+// // A bucket is a container for objects (files).
+// const bucket = storage.bucket(process.env.GCP_BUCKET_NAME);
+
+// // Display a form for uploading files.
+// app.get('/', (req, res) => {
+//   res.render('form.pug');
+// });
+
+// // Process the file upload and upload to Google Cloud Storage.
+// app.post('/upload', multer.single('file'), (req, res, next) => {
+//   if (!req.file) {
+//     res.status(400).send('No file uploaded.');
+//     return;
+//   }
+
+//   // Create a new blob in the bucket and upload the file data.
+//   const blob = bucket.file(req.file.originalname);
+//   const blobStream = blob.createWriteStream();
+
+//   blobStream.on('error', err => {
+//     next(err);
+//   });
+
+//   blobStream.on('finish', () => {
+//     // The public URL can be used to directly access the file via HTTP.
+//     const publicUrl = format(
+//       `https://storage.googleapis.com/${process.env.GCP_BUCKET_NAME}/${blob.name}`
+//     );
+//     res.status(200).send(publicUrl);
+//   });
+
+//   blobStream.end(req.file.buffer);
+// });
 
 
 const port = process.env.PORT || 2233

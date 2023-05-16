@@ -14,7 +14,7 @@ exports.postIndustries = async (req, res) => {
 exports.patchIndustries = async (req, res) => {
 
     const title = req.body.title;
-    //    const img = req.body.img;
+       const img = req.body.img;
     const desc = req.body.desc;
     const button = req.body.button
     const insiderId = req.params.id
@@ -29,7 +29,37 @@ exports.patchIndustries = async (req, res) => {
         $set: {
             "insider.$.title": title,
             "insider.$.desc": desc,
-            "insider.$.button": button
+            "insider.$.button": button,
+            "insider.$.img": img
+        }
+    }
+    let item = await industries.findOneAndUpdate(queryObj, updateObj, { new: true })
+    res.send(item)
+    console.log(item,updateObj)
+
+}
+
+
+exports.patchIndustriesimg = async (req, res) => {
+
+    // const title = req.body.title;
+       const img = req.body.img;
+    // const desc = req.body.desc;
+    // const button = req.body.button
+    const insiderId = req.params.id
+    //   console.log(heading,req,id)
+    console.log(insiderId)
+
+    let queryObj = { _id: mongoose.Types.ObjectId("64468f679bb39d6dc38af1fa"), "insider._id": mongoose.Types.ObjectId(insiderId) }
+
+    console.log(queryObj)
+
+    let updateObj = {
+        $set: {
+            // "insider.$.title": title,
+            // "insider.$.desc": desc,
+            // "insider.$.button": button,
+            "insider.$.img": img
         }
     }
     let item = await industries.findOneAndUpdate(queryObj, updateObj, { new: true })
@@ -39,7 +69,6 @@ exports.patchIndustries = async (req, res) => {
 
 
 }
-
 
 
 
@@ -81,8 +110,6 @@ exports.deleteIndustries = async (req, res) => {
         // let item= await industries.findOneAndUpdate(queryObj,updateObj,{new:true})
 
         res.status(200).send(item)
-
-
     } catch (error) {
         console.error(error);
         res.status(500).send('Server error');

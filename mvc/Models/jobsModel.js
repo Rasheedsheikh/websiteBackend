@@ -12,4 +12,6 @@ const jobs = new mongoose.Schema({
     Education: { type: String, required: false },
 
 })
-module.exports = mongoose.model("Jobs", jobs)
+exports.jobs= mongoose.model("Jobs", jobs)
+
+// exports.services = mongoose.model("Services", services);

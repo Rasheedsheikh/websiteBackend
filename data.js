@@ -168,8 +168,8 @@ const data = {
             "contact": [{
                 "title": ["CONTACT"],
                 "quote": [{
-                    "line1": "Lets work",
-                    "line2": "Together"
+                    "heading1": "Lets work",
+                    "heading2": "Together"
                 }],
                 "address": [{
                     "line1": "17 Campo Circle, Old westbury",
