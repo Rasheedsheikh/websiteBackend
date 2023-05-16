@@ -18,7 +18,6 @@ exports. createJobs= async(req,res)=>{
 exports.findJobById = async (req, res) => {
     try {   
         const { id } = req.params;
-       
         const details = await jobs.findById(id);
         // const details = job.find(i => i._id == id);
         if (details) {
@@ -57,8 +56,6 @@ exports. patchJobs= async(req,res)=>{
             "Location":Location,
             "Schedule":Schedule,
             "Education":Education
-
-         
         }
     }
     let item = await jobs.findOneAndUpdate(queryObj, updateObj, { new: true })

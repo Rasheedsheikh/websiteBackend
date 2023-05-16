@@ -1,8 +1,8 @@
 const dotenv = require("dotenv")
 const express = require("express")
 const mongoose = require("mongoose")
-const Multer = require('multer');
-const {Storage} = require('@google-cloud/storage');
+// const Multer = require('multer');
+// const {Storage} = require('@google-cloud/storage');
 const {format} = require('util');
 
 
@@ -37,17 +37,17 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-app.get("/home", async (req, res) => {
-    // const home = await Jobs.create(req.body)
-    res.send(homeh)
+// app.get("/home", async (req, res) => {
+//     // const home = await Jobs.create(req.body)
+//     res.send(homeh)
 
-})
+// })
 
-app.get("/homemain", async (req, res) => {
-    // const home = await Jobs.create(req.body)
-    res.send(home)
+// app.get("/homemain", async (req, res) => {
+//     // const home = await Jobs.create(req.body)
+//     res.send(home)
 
-})
+// })
 
 
 
@@ -127,12 +127,12 @@ app.get("/searchjob", async (req, res) => {
 
 // })
 
-const multer = Multer({
-      storage: Multer.memoryStorage(),
-      limits: {
-        fileSize: 100 * 1024 * 1024, 
-      },
-    });
+// const multer = Multer({
+//       storage: Multer.memoryStorage(),
+//       limits: {
+//         fileSize: 100 * 1024 * 1024, 
+//       },
+//     });
 
 // app.post('/fileUpload', multer.single('file'), async(req,res)=>{
 //     console.log(req );
@@ -169,61 +169,61 @@ const multer = Multer({
 //   }
 // )
 
+// this
+// const cloudStorage = new Storage({
+//   // keyFilename: `${__dirname}/service_account_key.json`,
+//   projectId: "urgent-care-306805",
+// });
+// const bucketName = "urgentcare-forms-demo";
+// const bucket = cloudStorage.bucket(bucketName);
+// app.post("/fileupload", multer.single("file"), function (req, res, next) {
 
-const cloudStorage = new Storage({
-  // keyFilename: `${__dirname}/service_account_key.json`,
-  projectId: "urgent-care-306805",
-});
-const bucketName = "urgentcare-forms-demo";
-const bucket = cloudStorage.bucket(bucketName);
-app.post("/fileupload", multer.single("file"), function (req, res, next) {
+// //  var arr =[
+// //   "industry"
+// //  ]
+// const insiderId=req.params.id
+//   console.log(req.id)
+//   console.log(req.file);
+//   console.log(req.body)
+//   if (!req.file) {
+//     res.status(400).send("No file uploaded.");
+//     return;
+//   }
+//   const blob = bucket.file(req.file.originalname);
+//   const blobStream = blob.createWriteStream();
+//   blobStream.on("error", (err) => {
+//     next(err);
+//   });
+//   blobStream.on("finish", () => {
+//     // The public URL can be used to directly access the file via HTTP.
+//     const publicUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
 
-//  var arr =[
-//   "industry"
-//  ]
-const insiderId=req.params.id
-  console.log(req.id)
-  console.log(req.file);
-  console.log(req.body)
-  if (!req.file) {
-    res.status(400).send("No file uploaded.");
-    return;
-  }
-  const blob = bucket.file(req.file.originalname);
-  const blobStream = blob.createWriteStream();
-  blobStream.on("error", (err) => {
-    next(err);
-  });
-  blobStream.on("finish", () => {
-    // The public URL can be used to directly access the file via HTTP.
-    const publicUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
+//     let queryObj = { _id: mongoose.Types.ObjectId("64468f679bb39d6dc38af1fa"), "insider._id": mongoose.Types.ObjectId(insiderId) }
 
-    let queryObj = { _id: mongoose.Types.ObjectId("64468f679bb39d6dc38af1fa"), "insider._id": mongoose.Types.ObjectId(insiderId) }
+//     console.log(queryObj)
 
-    console.log(queryObj)
-
-    let updateObj = {
-        $set: {
-            // "insider.$.title": title,
-            // "insider.$.desc": desc,
-            // "insider.$.button": button,
-            "insider.$.img": publicUrl
-        }
-    }
-    let item =  industries.findOneAndUpdate(queryObj, updateObj, { new: true })
-    res.send(item)
-    console.log(item,updateObj)
+//     let updateObj = {
+//         $set: {
+//             // "insider.$.title": title,
+//             // "insider.$.desc": desc,
+//             // "insider.$.button": button,
+//             "insider.$.img": publicUrl
+//         }
+//     }
+//     let item =  industries.findOneAndUpdate(queryObj, updateObj, { new: true })
+//     res.send(item)
+//     console.log(item,updateObj)
 
 
-    // if (res) {
-    //   patchIndustriesimg
-    // }
-    res.status(200).json({ publicUrl });
+//     // if (res) {
+//     //   patchIndustriesimg
+//     // }
+//     res.status(200).json({ publicUrl });
 
-  });
-  blobStream.end(req.file.buffer);
+//   });
+//   blobStream.end(req.file.buffer);
   
-});
+// });
 // const multer = Multer({
 //     storage: Multer.memoryStorage(),
 //     limits: {
