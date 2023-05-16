@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Multer = require('multer');
-const {Storage} = require('@google-cloud/storage');
+// const Multer = require('multer');
+// const {Storage} = require('@google-cloud/storage');
 const { industries } = require("../Models/industriesModel")
 
 exports.getIndustries = async (req, res) => {
@@ -121,57 +121,57 @@ exports.deleteIndustries = async (req, res) => {
 
 
 
-const multer = Multer({
-    storage: Multer.memoryStorage(),
-    limits: {
-      fileSize: 100 * 1024 * 1024,
-    },
-  });
+// const multer = Multer({
+//     storage: Multer.memoryStorage(),
+//     limits: {
+//       fileSize: 100 * 1024 * 1024,
+//     },
+//   });
   
-  const cloudStorage = new Storage({
-    // keyFilename: `${__dirname}/service_account_key.json`,
-    projectId: "urgent-care-306805",
-  });
-  const bucketName = "urgentcare-forms-demo";
-  const bucket = cloudStorage.bucket(bucketName);
+//   const cloudStorage = new Storage({
+//     // keyFilename: `${__dirname}/service_account_key.json`,
+//     projectId: "urgent-care-306805",
+//   });
+//   const bucketName = "urgentcare-forms-demo";
+//   const bucket = cloudStorage.bucket(bucketName);
   
-  exports. uploadFile = async (req, res, next) => {
-    const insiderId = req.params.id;
-    console.log(req.id);
-    console.log(req.file);
-    console.log(req.body);
-    if (!req.file) {
-      res.status(400).send("No file uploaded.");
-      return;
-    }
-    const blob = bucket.file(req.file.originalname);
-    const blobStream = blob.createWriteStream();
-    blobStream.on("error", (err) => {
-      next(err);
-    });
-    blobStream.on("finish", () => {
-      const publicUrl = format(
-        `https://storage.googleapis.com/${bucket.name}/${blob.name}`
-      );
+//   exports. uploadFile = async (req, res, next) => {
+//     const insiderId = req.params.id;
+//     console.log(req.id);
+//     console.log(req.file);
+//     console.log(req.body);
+//     if (!req.file) {
+//       res.status(400).send("No file uploaded.");
+//       return;
+//     }
+//     const blob = bucket.file(req.file.originalname);
+//     const blobStream = blob.createWriteStream();
+//     blobStream.on("error", (err) => {
+//       next(err);
+//     });
+//     blobStream.on("finish", () => {
+//       const publicUrl = format(
+//         `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+//       );
   
-      let queryObj = {
-        _id: mongoose.Types.ObjectId("64468f679bb39d6dc38af1fa"),
-        "insider._id": mongoose.Types.ObjectId(insiderId),
-      };
+//       let queryObj = {
+//         _id: mongoose.Types.ObjectId("64468f679bb39d6dc38af1fa"),
+//         "insider._id": mongoose.Types.ObjectId(insiderId),
+//       };
   
-      console.log(queryObj);
+//       console.log(queryObj);
   
-      let updateObj = {
-        $set: {
-          "insider.$.img": publicUrl,
-        },
-      };
+//       let updateObj = {
+//         $set: {
+//           "insider.$.img": publicUrl,
+//         },
+//       };
   
-      let item = industries.findOneAndUpdate(queryObj, updateObj, { new: true });
-      res.send(item);
-      console.log(item, updateObj);
+//       let item = industries.findOneAndUpdate(queryObj, updateObj, { new: true });
+//       res.send(item);
+//       console.log(item, updateObj);
   
-      res.status(200).json({ publicUrl });
-    });
-    blobStream.end(req.file.buffer);
-  };
+//       res.status(200).json({ publicUrl });
+//     });
+//     blobStream.end(req.file.buffer);
+//   };
