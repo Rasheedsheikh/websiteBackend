@@ -1,8 +1,8 @@
 const dotenv = require("dotenv")
 const express = require("express")
 const mongoose = require("mongoose")
-// const Multer = require('multer');
-// const {Storage} = require('@google-cloud/storage');
+const Multer = require('multer');
+const {Storage} = require('@google-cloud/storage');
 const {format} = require('util');
 
 
@@ -43,11 +43,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // })
 
-// app.get("/homemain", async (req, res) => {
-//     // const home = await Jobs.create(req.body)
-//     res.send(home)
+app.get("/homemain", async (req, res) => {
+    // const home = await Jobs.create(req.body)
+    res.send(home)
 
-// })
+})
 
 
 
@@ -169,7 +169,7 @@ app.get("/searchjob", async (req, res) => {
 //   }
 // )
 
-// this
+
 // const cloudStorage = new Storage({
 //   // keyFilename: `${__dirname}/service_account_key.json`,
 //   projectId: "urgent-care-306805",
