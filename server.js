@@ -1,8 +1,8 @@
 const dotenv = require("dotenv")
 const express = require("express")
 const mongoose = require("mongoose")
-const Multer = require('multer');
-const {Storage} = require('@google-cloud/storage');
+// const Multer = require('multer');
+// const {Storage} = require('@google-cloud/storage');
 const {format} = require('util');
 
 
