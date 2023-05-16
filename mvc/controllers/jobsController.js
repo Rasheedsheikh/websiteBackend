@@ -1,20 +1,4 @@
-// app.post("/jobs", async (req, res) => {
-//     const data = await Jobs.create(req.body)
-//     res.send(data)
 
-// })
-// app.get("/jobs", async (req, res) => {
-//     const data = await Jobs.find({})
-//     res.send(data)
-
-// })
-
-// app.get("/jobs/:id", async (req, res) => {
-//     const data = await Jobs.find({ _id: req.params.id })
-//     console.log(req)
-//     res.send(data)
-
-// })
 
 const mongoose = require('mongoose');
 const {jobs}= require("../Models/jobsModel")
@@ -47,22 +31,7 @@ exports.findJobById = async (req, res) => {
     }
 };
 
-// title
-// "Management - Human Resource Management"
-// Experience
-// "2 to 5 Years"
-// jobtype
-// "Full time"
-// Location
-// "Coimbatore"
-// desc
-// "Build website architecture and aesthetics with WordPress Ability to cr…"
 
-// desc2
-// Array
-// Schedule
-// "9AM TO 6PM"
-// Education
 
 exports. patchJobs= async(req,res)=>{
     const title= req.body.title
