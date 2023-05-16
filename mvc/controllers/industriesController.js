@@ -135,7 +135,7 @@ exports.deleteIndustries = async (req, res) => {
 //   const bucketName = "urgentcare-forms-demo";
 //   const bucket = cloudStorage.bucket(bucketName);
   
-//   exports. uploadFile = async (req, res, next) => {
+//   exports.uploadFile = async (req, res, next) => {
 //     const insiderId = req.params.id;
 //     console.log(req.id);
 //     console.log(req.file);

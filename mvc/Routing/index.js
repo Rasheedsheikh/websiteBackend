@@ -12,9 +12,9 @@ const whychooseController=require("../controllers/whychooseController");
 const salesforceController=require("../controllers/salesforceController");
 const videoController = require('../controllers/videoController');
 const whyworkwithusController  = require('../controllers/whyworkwithusController');
-const fullStackController= require("../controllers/fullstackController");
+const fullstackController= require("../controllers/fullstackController");
 const botController=require("../controllers/botController");
-const learnmoreController=require("../controllers/LearnmoreController")
+const LearnmoreController=require("../controllers/LearnmoreController")
 const aimlController=require("../controllers/aimlController")
 // const videoController=require("../controllers/videoController")
 
@@ -102,12 +102,12 @@ routes.get("/:id/salesforce/:solId",salesforceController.findSolsalesforceById)
 routes.patch("/solsalesforce/:id",salesforceController.patchSolsalesforce)
 
 // fullstack
-routes.post("/post-fullStack",fullStackController.postfullStack)
-routes.get("/get-fullStack",fullStackController.getfullStack)
-routes.patch("/fullStack/:id",fullStackController.patchfullStack)
-routes.get("/:id/fullStack",fullStackController.findfullStackById)
-routes.get("/:id/fullStack/:fulId",fullStackController.findfulId)
-routes.patch("/fulfullStack/:id",fullStackController.patchful)
+routes.post("/post-fullStack",fullstackController.postfullStack)
+routes.get("/get-fullStack",fullstackController.getfullStack)
+routes.patch("/fullStack/:id",fullstackController.patchfullStack)
+routes.get("/:id/fullStack",fullstackController.findfullStackById)
+routes.get("/:id/fullStack/:fulId",fullstackController.findfulId)
+routes.patch("/fulfullStack/:id",fullstackController.patchful)
 
 // bot
 routes.post("/post-bot",botController.postbot)
@@ -127,20 +127,21 @@ routes.patch("/gridaiml/:id",aimlController.patchgrid)
 // video
 routes.get("/get-video", videoController.getVideo)
 routes.post("/post-video", videoController.createVideo)
-routes.get("/:id/life/:lifeId",learnmoreController.findlifeId)
-routes.patch("/life/:id",learnmoreController.patchlife)
 
-routes.get("/:id/Emer/:EmerId",learnmoreController.findEmerId)
-routes.patch("/Emer/:id",learnmoreController.patchEmer)
-routes.get("/:id/provider/:providerId",learnmoreController.findproviderId)
-routes.patch("/provider/:id",learnmoreController.patchprovider)
-routes.get("/:id/Payers/:PayersId",learnmoreController.findPayersId)
-routes.patch("/Payers/:id",learnmoreController.patchPayers)
 
 // leranmore
 
-routes.get("/get-learnmore", learnmoreController.getlearnmore)
-routes.post("/post-learnmore", learnmoreController.postlearnmore)
+routes.get("/get-learnmore", LearnmoreController.getlearnmore)
+routes.post("/post-learnmore", LearnmoreController.postlearnmore)
+routes.get("/:id/life/:lifeId",LearnmoreController.findlifeId)
+routes.patch("/life/:id",LearnmoreController.patchlife)
+
+routes.get("/:id/Emer/:EmerId",LearnmoreController.findEmerId)
+routes.patch("/Emer/:id",LearnmoreController.patchEmer)
+routes.get("/:id/provider/:providerId",LearnmoreController.findproviderId)
+routes.patch("/provider/:id",LearnmoreController.patchprovider)
+routes.get("/:id/Payers/:PayersId",LearnmoreController.findPayerId)
+routes.patch("/Payers/:id",LearnmoreController.patchPayers)
 
 
 
