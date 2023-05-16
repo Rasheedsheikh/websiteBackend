@@ -12,7 +12,7 @@ const routes = require("./mvc/Routing/index");
 
 dotenv.config()
 const homeh= require('./data');
-const { patchIndustriesimg } = require("./mvc/controllers/industriesController");
+// const { patchIndustriesimg } = require("./mvc/controllers/industriesController");
 
 const app = express()
 app.use(
@@ -37,11 +37,11 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-// app.get("/home", async (req, res) => {
-//     // const home = await Jobs.create(req.body)
-//     res.send(homeh)
+app.get("/home", async (req, res) => {
+    // const home = await Jobs.create(req.body)
+    res.send(homeh)
 
-// })
+})
 
 app.get("/homemain", async (req, res) => {
     // const home = await Jobs.create(req.body)

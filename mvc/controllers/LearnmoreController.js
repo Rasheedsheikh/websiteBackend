@@ -26,85 +26,213 @@ exports.findlearnmoreById= async(req,res)=>{
 
 
 
-    // exports.findfulId= async(req,res)=>{
+    exports.findlifeId= async(req,res)=>{
       
-    //         try {  
-    //             const { id } = req.params;
-    //             const { fulId } = req.params;
-    //             const industry = await learnmore.findById(id);
-    //             const ful = industry.ful.find(i => i._id == fulId);
-    //             if (ful) {
-    //                 res.status(200).json(ful);
-    //             } else {
-    //                 res.status(404).json({ message: "ful not found" });
-    //             }
-    //         } catch (error) {
-    //             res.status(500).json({ message: error.message });
-    //         }
-    //     };
+            try {  
+                const { id } = req.params;
+                const { lifeId } = req.params;
+                const industry = await learnmore.findById(id);
+                const life = industry.life.find(i => i._id == lifeId);
+                if (life) {
+                    res.status(200).json(life);
+                } else {
+                    res.status(404).json({ message: "life not found" });
+                }
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        };
+        exports.findEmerId= async(req,res)=>{
+      
+            try {  
+                const { id } = req.params;
+                const { EmerId } = req.params;
+                const industry = await learnmore.findById(id);
+                const Emer = industry.Emer.find(i => i._id == EmerId);
+                if (Emer) {
+                    res.status(200).json(Emer);
+                } else {
+                    res.status(404).json({ message: "Emer not found" });
+                }
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        };
+        exports.findproviderId= async(req,res)=>{
+      
+            try {  
+                const { id } = req.params;
+                const { providersId } = req.params;
+                const industry = await learnmore.findById(id);
+                const providers = industry.provider.find(i => i._id == providersId);
+                if (providers) {
+                    res.status(200).json(provider);
+                } else {
+                    res.status(404).json({ message: "providers not found" });
+                }
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        };
 
+
+        exports.findPayerId= async(req,res)=>{
+      
+            try {  
+                const { id } = req.params;
+                const { PayerId } = req.params;
+                const industry = await learnmore.findById(id);
+                const Payer = industry.Payer.find(i => i._id == PayerId);
+                if (Payer) {
+                    res.status(200).json(Payer);
+                } else {
+                    res.status(404).json({ message: "Payer not found" });
+                }
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        };
         
 
-    // exports.patchlearnmore= async(req,res)=>{
-    //     const para2= req.body.para2
-    //     const para1= req.body.para1
-    //     const title=req.body.title
-    //     const image=req.body.image
-     
-    //     // const text= req.body.text
-    //     const id=req.params.id
-    //     let queryObj= { _id: mongoose.Types.ObjectId(id)}
-    //     console.log(queryObj)
+    exports.patchEmer= async(req,res)=>{
+        const desc = req.body.desc;
+        const desctitle=req.body.desctitle
+        const img= req.body.img
+        // const id=req.body.id
+        const EmerId = req.params.id
+        //  const id=req.params.id
+        //   console.log(name,req,id)
+        console.log(EmerId)
+    console.log(req.body)
     
-    //     let updateObj = {
-    //         $set: {
-    //             "para2":para2,
-    //            "para1":para1,
-    //             "title":title,
-    //             "image":image,
-    //             // "imgonimg":imgonimg,
-    //             // "text":text
-             
-    //         }
-    //     }
-    //     let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
-    //     res.send(item)
-    //     console.log(item,updateObj)
-    // }
+        let queryObj = { _id: mongoose.Types.ObjectId("646223526b35ea701d77405f"), "Emer._id": mongoose.Types.ObjectId(EmerId) }
     
+        console.log(queryObj)
     
-
-    // exports.patchful = async (req, res) => {
-
-    //     //    const imgtitle = req.body.imgtitle;
-    //     const desc = req.body.desc;
-    //     const desctitle=req.body.desctitle
-    //     const img= req.body.img
-    //     // const id=req.body.id
-    //     const solId = req.params.id
-    //     //  const id=req.params.id
-    //     //   console.log(name,req,id)
-    //     console.log(solId)
-    // console.log(req.body)
-    
-    //     let queryObj = { _id: mongoose.Types.ObjectId("6434ee0aac41f940a67642f5"), "sol._id": mongoose.Types.ObjectId(solId) }
-    
-    //     console.log(queryObj)
-    
-    //     let updateObj = {
-    //         $set: {
-    //             // "sol.$.imgtitle": imgtitle,
-    //             "sol.$.desc": desc,
-    //             "sol.$.desctitle":desctitle,
-    //             "sol.$.img":img
+        let updateObj = {
+            $set: {
+                // "sol.$.imgtitle": imgtitle,
+                "Emer.$.desc": desc,
+                "Emer.$.desctitle":desctitle,
+                "Emer.$.img":img
                 
-    //             // "insider.$.button": button
-    //         }
-    //     }
-    //     let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
-    //     res.send(item)
-    //     console.log(item,updateObj)
+                // "insider.$.button": button
+            }
+        }
+        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        res.send(item)
+        console.log(item,updateObj)
     
-    //     // console.log(req.body)
+        // console.log(req.body)
     
-    // }
+    }
+
+    
+
+    exports.patchlife = async (req, res) => {
+
+        //    const imgtitle = req.body.imgtitle;
+        const desc = req.body.desc;
+        const desctitle=req.body.desctitle
+        const img= req.body.img
+        // const id=req.body.id
+        const lifeId = req.params.id
+        //  const id=req.params.id
+        //   console.log(name,req,id)
+        console.log(lifeId)
+    console.log(req.body)
+    
+        let queryObj = { _id: mongoose.Types.ObjectId("646223526b35ea701d77405f"), "life._id": mongoose.Types.ObjectId(lifeId) }
+    
+        console.log(queryObj)
+    
+        let updateObj = {
+            $set: {
+                // "sol.$.imgtitle": imgtitle,
+                "life.$.desc": desc,
+                "life.$.desctitle":desctitle,
+                "life.$.img":img
+                
+                // "insider.$.button": button
+            }
+        }
+        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        res.send(item)
+        console.log(item,updateObj)
+    
+        // console.log(req.body)
+    
+    }
+
+
+
+    exports.patchprovider = async (req, res) => {
+
+        //    const imgtitle = req.body.imgtitle;
+        const desc = req.body.desc;
+        const desctitle=req.body.desctitle
+        const img= req.body.img
+        // const id=req.body.id
+        const providerId = req.params.id
+        //  const id=req.params.id
+        //   console.log(name,req,id)
+        console.log(providerId)
+    console.log(req.body)
+    
+        let queryObj = { _id: mongoose.Types.ObjectId("646223526b35ea701d77405f"), "provider._id": mongoose.Types.ObjectId(providerId) }
+    
+        console.log(queryObj)
+    
+        let updateObj = {
+            $set: {
+                // "sol.$.imgtitle": imgtitle,
+                "provider.$.desc": desc,
+                "provider.$.desctitle":desctitle,
+                "provider.$.img":img
+                
+                // "insider.$.button": button
+            }
+        }
+        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        res.send(item)
+        console.log(item,updateObj)
+    
+        // console.log(req.body)
+    
+    }
+
+
+    exports.patchPayers = async (req, res) => {
+
+        //    const imgtitle = req.body.imgtitle;
+        const desc = req.body.desc;
+        const desctitle=req.body.desctitle
+        const img= req.body.img
+        // const id=req.body.id
+        const PayersId = req.params.id
+        //  const id=req.params.id
+        //   console.log(name,req,id)
+        console.log(PayersId)
+    console.log(req.body)
+    
+        let queryObj = { _id: mongoose.Types.ObjectId("646223526b35ea701d77405f"), "Payers._id": mongoose.Types.ObjectId(PayersId) }
+    
+        console.log(queryObj)
+    
+        let updateObj = {
+            $set: {
+                // "sol.$.imgtitle": imgtitle,
+                "Payers.$.desc": desc,
+                "Payers.$.desctitle":desctitle,
+                "Payers.$.img":img
+                
+                // "insider.$.button": button
+            }
+        }
+        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        res.send(item)
+        console.log(item,updateObj)
+    
+        // console.log(req.body)
+    
+    }

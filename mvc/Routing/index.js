@@ -127,11 +127,21 @@ routes.patch("/gridaiml/:id",aimlController.patchgrid)
 // video
 routes.get("/get-video", videoController.getVideo)
 routes.post("/post-video", videoController.createVideo)
+routes.get("/:id/life/:lifeId",learnmoreController.findlifeId)
+routes.patch("/life/:id",learnmoreController.patchlife)
+
+routes.get("/:id/Emer/:EmerId",learnmoreController.findEmerId)
+routes.patch("/Emer/:id",learnmoreController.patchEmer)
+routes.get("/:id/provider/:providerId",learnmoreController.findproviderId)
+routes.patch("/provider/:id",learnmoreController.patchprovider)
+routes.get("/:id/Payers/:PayersId",learnmoreController.findPayersId)
+routes.patch("/Payers/:id",learnmoreController.patchPayers)
 
 // leranmore
 
 routes.get("/get-learnmore", learnmoreController.getlearnmore)
 routes.post("/post-learnmore", learnmoreController.postlearnmore)
+
 
 
 
