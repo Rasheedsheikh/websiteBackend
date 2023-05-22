@@ -65,7 +65,7 @@ exports.patchWhychoose = async (req, res) => {
 
     console.log(req.body); // Log the request body to see if the values are being passed correctly
 
-    let queryObj = { _id: mongoose.Types.ObjectId("6433ab8217e9bf887c39a6cf"), "desc._id": mongoose.Types.ObjectId(descId) };
+    let queryObj = { _id: mongoose.Types.ObjectId("6451028d758aa6177a972dd6"), "desc._id": mongoose.Types.ObjectId(descId) };
     let updateObj = {
       $set: {
         "desc.$.number": number,
@@ -87,8 +87,8 @@ exports.findWhyChooseById = async (req, res) => {
     try {  
         const { id } = req.params;
         const { descId } = req.params;
-        const industry = await whychoose.findById(id);
-        const desc = whychoose.desc.find(i => i._id == descId);
+        const whychose = await whychoose.findById(id);
+        const desc = whychose.desc.find(i => i._id == descId);
         if (desc) {
             res.status(200).json(desc);
         } else {

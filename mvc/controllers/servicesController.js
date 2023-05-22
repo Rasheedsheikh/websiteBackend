@@ -52,8 +52,7 @@ exports.patchServices = async (req, res) => {
     const desc = req.body.desc;
  
     const shapesId = req.params.id
-      console.log(heading,req)
-    console.log(shapesId)
+      console.log({desc})
 console.log(req.body)
 
     let queryObj = { _id: mongoose.Types.ObjectId("6450fefe2dbe73a9c4980f8a"), "shapes._id": mongoose.Types.ObjectId(shapesId) }

@@ -92,7 +92,7 @@ exports.findsalesforceById= async(req,res)=>{
         console.log(solId)
     console.log(req.body)
     
-        let queryObj = { _id: mongoose.Types.ObjectId("6434ee0aac41f940a67642f5"), "sol._id": mongoose.Types.ObjectId(solId) }
+        let queryObj = { _id: mongoose.Types.ObjectId("6461b59ab8053833a9620012"), "sol._id": mongoose.Types.ObjectId(solId) }
     
         console.log(queryObj)
     

@@ -51,8 +51,12 @@ exports.findaimlById= async(req,res)=>{
     exports.patchaiml= async(req,res)=>{
         const para2= req.body.para2
         const para1= req.body.para1
+        const line1= req.body.line1
+        const line2= req.body.line2
+        const line3= req.body.line3
+
         const title=req.body.title
-        const image=req.body.image
+        // const image=req.body.image
      
         // const text= req.body.text
         const id=req.params.id
@@ -63,8 +67,11 @@ exports.findaimlById= async(req,res)=>{
             $set: {
                 "para2":para2,
                "para1":para1,
+               "line1":line1,
+               "line2":line2,
+               "line3":line3,
                 "title":title,
-                "image":image,
+                // "image":image,
                 // "imgonimg":imgonimg,
                 // "text":text
              

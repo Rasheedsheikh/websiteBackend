@@ -64,7 +64,7 @@ exports.findlearnmoreById= async(req,res)=>{
                 const { id } = req.params;
                 const { providersId } = req.params;
                 const industry = await learn.findById(id);
-                const providers = industry.provider.find(i => i._id == providersId);
+                const providers = industry.providers.find(i => i._id == providersId);
                 if (providers) {
                     res.status(200).json(provider);
                 } else {
@@ -82,7 +82,7 @@ exports.findlearnmoreById= async(req,res)=>{
                 const { id } = req.params;
                 const { PayerId } = req.params;
                 const industry = await learn.findById(id);
-                const Payer = industry.Payer.find(i => i._id == PayerId);
+                const Payer = industry.Payers.find(i => i._id == PayerId);
                 if (Payer) {
                     res.status(200).json(Payer);
                 } else {
@@ -117,7 +117,7 @@ exports.findlearnmoreById= async(req,res)=>{
                 "Emer.$.desc.2": desc[2],
                 "Emer.$.desc.3": desc[3],
                 "Emer.$.title":title,
-                "Emer.$.img":img
+                // "Emer.$.img":img
                 
                 // "insider.$.button": button
             }
@@ -137,7 +137,7 @@ exports.findlearnmoreById= async(req,res)=>{
         //    const imgtitle = req.body.imgtitle;
         const desc = req.body.desc
         const title=req.body.title
-        const img= req.body.img
+        // const img= req.body.img
         // const id=req.body.id
         const lifeId = req.params.id
         //  const id=req.params.id
@@ -151,13 +151,13 @@ exports.findlearnmoreById= async(req,res)=>{
     
         let updateObj = {
             $set: {
+                "life.$.title":title,
                 // "sol.$.imgtitle": imgtitle,
                 "life.$.desc.0": desc[0],
                 "life.$.desc.1": desc[1],
                 "life.$.desc.2": desc[2],
                 "life.$.desc.3": desc[3],
-                "life.$.title":title,
-                "life.$.img":img
+                // "life.$.img":img
                 
                 // "insider.$.button": button
             }
@@ -198,7 +198,7 @@ exports.findlearnmoreById= async(req,res)=>{
                 "providers.$.desc.3": desc[3],
                
                 "providers.$.title":title,
-                "providers.$.img":img
+                // "providers.$.img":img
                 
                 // "insider.$.button": button
             }

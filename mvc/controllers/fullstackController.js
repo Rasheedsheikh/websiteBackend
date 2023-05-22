@@ -85,24 +85,24 @@ exports.findfullStackById= async(req,res)=>{
         //    const imgtitle = req.body.imgtitle;
         const desc = req.body.desc;
         const desctitle=req.body.desctitle
-        const img= req.body.img
+        // const img= req.body.img
         // const id=req.body.id
-        const solId = req.params.id
+        const fulId = req.params.id
         //  const id=req.params.id
         //   console.log(name,req,id)
-        console.log(solId)
+        console.log(fulId)
     console.log(req.body)
     
-        let queryObj = { _id: mongoose.Types.ObjectId("6434ee0aac41f940a67642f5"), "sol._id": mongoose.Types.ObjectId(solId) }
+        let queryObj = { _id: mongoose.Types.ObjectId("645c7d94437378652a296c49"), "ful._id": mongoose.Types.ObjectId(fulId) }
     
         console.log(queryObj)
     
         let updateObj = {
             $set: {
                 // "sol.$.imgtitle": imgtitle,
-                "sol.$.desc": desc,
-                "sol.$.desctitle":desctitle,
-                "sol.$.img":img
+                "ful.$.desc": desc,
+                "ful.$.desctitle":desctitle,
+                // "sol.$.img":img
                 
                 // "insider.$.button": button
             }
