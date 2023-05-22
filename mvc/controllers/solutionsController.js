@@ -36,41 +36,41 @@ exports.findSolutionsById = async (req, res) => {
 };
 
 
-// exports.patchSolutions = async (req, res) => {
+exports.patchSolutions = async (req, res) => {
 
-//     const title = req.body.title;
-//     //    const img = req.body.img;
-//     // const heading2 = req.body.heading2;
-//     const desc=req.body.desc
-//     // const img= req.body.img 
-//     const headingId = req.params.id
-//     // const id=req.params
+    const title = req.body.title;
+    //    const img = req.body.img;
+    // const heading2 = req.body.heading2;
+    const desc=req.body.desc
+    // const img= req.body.img 
+    const headingId = req.params.id
+    // const id=req.params
    
-//     //   console.log(heading1,req,id)
-//     console.log(headingId)
-// console.log(req.body)
+    //   console.log(heading1,req,id)
+    console.log(headingId)
+console.log(req.body)
 
-//     let queryObj = { _id: mongoose.Types.ObjectId("646af16005f278fd8044d467"), "heading._id": mongoose.Types.ObjectId(headingId) }
+    let queryObj = { _id: mongoose.Types.ObjectId("646af16005f278fd8044d467"), "heading._id": mongoose.Types.ObjectId(headingId) }
   
-//     console.log(queryObj)
+    console.log(queryObj)
 
-//     let updateObj = {
-//         $set: {
-//             "heading.$.title": title,
-//             // "heading.$.heading2": heading2,
-//             "heading.$.desc":desc,
-//             // "heading.$.img":img
+    let updateObj = {
+        $set: {
+            "heading.$.title": title,
+            // "heading.$.heading2": heading2,
+            "heading.$.desc":desc,
+            // "heading.$.img":img
             
-//             // "insider.$.button": button
-//         }
-//     }
-//     let item = await solutions.findOneAndUpdate(queryObj, updateObj, { new: true })
-//     res.send(item)
-//     console.log(item,updateObj)
+            // "insider.$.button": button
+        }
+    }
+    let item = await solutions.findOneAndUpdate(queryObj, updateObj, { new: true })
+    res.send(item)
+    console.log(item,updateObj)
 
-//     // console.log(req.body)
+    // console.log(req.body)
 
-// }
+}
 
 
 // const multer = Multer({

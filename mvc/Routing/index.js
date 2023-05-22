@@ -45,7 +45,7 @@ routes.get("/get-solutions", solutionController.getSolutions)
 routes.post("/post-solutions", solutionController.postSolutions)
 routes.get("/:id/heading/:headingId",solutionController.findSolutionsById)
 routes.patch("/solutionsMain/:id",solutionController.patchSolutions)
-routes.post("/fileuploadSolution/:id",multer.single('file'),solutionController.uploadFileSolution)
+// routes.post("/fileuploadSolution/:id",multer.single('file'),solutionController.uploadFileSolution)
 
 // whyworkwithus
 routes.post("/post-workwithus",whyworkwithusController.createWorkwithus)
