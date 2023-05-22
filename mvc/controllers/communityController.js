@@ -178,10 +178,7 @@ const multer = Multer({
       let updateObj = {
         $set: {
             "IMG":`https://storage.googleapis.com/${bucket.name}/${blob.name}`,
-          "images[0]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
-          "images[1]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
-          "images[2]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
-          "images[3]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+    
         },
       };
     //   let updateObj2={
