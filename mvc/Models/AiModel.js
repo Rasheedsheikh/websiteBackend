@@ -6,7 +6,7 @@ const aiml= new mongoose.Schema({
         line1:{type:String,required:false},
         line2:{type:String,required:false},
         line3:{type:String,required:false},
-        para3:{type:String,required:false},
+        // para3:{type:String,required:false},
 
         para2:{type:String,required:false},
         image:{type:String,required:false},
@@ -23,3 +23,6 @@ const aiml= new mongoose.Schema({
 exports.aiml=mongoose.model("Aiml",aiml)
 
 
+
+
+     

@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const {community}= require("../Models/communityModel")
+const Multer = require('multer');
+const {Storage} = require('@google-cloud/storage');
+const {format} = require('util');
 
 exports. getCommunity= async(req,res)=>{
     const data= await community.find()
@@ -40,7 +43,7 @@ exports.patchCommunity = async (req, res) => {
    
     //   console.log(heading1,req,id)
     console.log(detailsId)
-console.log(req.body)
+    console.log(req.body)
 
     let queryObj = { _id: mongoose.Types.ObjectId("643d1ca9d4a66e1e46b71d0b"), "details._id": mongoose.Types.ObjectId(detailsId) }
   
@@ -53,7 +56,7 @@ console.log(req.body)
             "details.$.desc":desc,
             // "details.$.img":img
             
-            // "insider.$.button": button
+            // "details.$.button": button
         }
     }
     let item = await community.findOneAndUpdate(queryObj, updateObj, { new: true })
@@ -63,6 +66,37 @@ console.log(req.body)
     // console.log(req.body)
 
 }
+// exports.patchCommunityimages = async (req, res) => {
+    
+//        const images = req.body.images;
+   
+//     //   console.log(heading1,req,id)
+//     console.log(detailsId)
+//     console.log(req.body)
+
+//     let queryObj = { _id: mongoose.Types.ObjectId("643d1ca9d4a66e1e46b71d0b"), "details._id": mongoose.Types.ObjectId(detailsId) }
+  
+//     console.log(queryObj)
+
+//     let updateObj = {
+//         $set: {
+           
+//             "details.$.images.0":images[0],
+//             "details.$.images.1":images[1],
+//             "details.$.images.2":images[2],
+//             "details.$.images.3":images[3]
+
+            
+//             // "insider.$.button": button
+//         }
+//     }
+//     let item = await community.findOneAndUpdate(queryObj, updateObj, { new: true })
+//     res.send(item)
+//     console.log(item,updateObj)
+
+//     // console.log(req.body)
+
+// }
 
 
 exports. patchMainCommunity= async(req,res)=>{
@@ -85,4 +119,82 @@ exports. patchMainCommunity= async(req,res)=>{
     let item = await community.findOneAndUpdate(queryObj, updateObj, { new: true })
     res.send(item)
     console.log(item,updateObj)
+}
+
+
+const multer = Multer({
+    storage: Multer.memoryStorage(),
+    limits: {
+      fileSize: 100 * 1024 * 1024,
+    },
+  });
+  
+  const cloudStorage = new Storage({
+    // keyFilename: `${__dirname}/service_account_key.json`,
+    projectId: "urgent-care-306805",
+  });
+  const bucketName = "urgentcare-forms-demo";
+  const bucket = cloudStorage.bucket(bucketName);
+  
+  exports.uploadFileCommu = async (req, res, next) => {
+    
+    const Id = req.params.id;
+    // const id=req.params
+    // console.log(req.body.details_id)
+    // var fileBuffer = Buffer.from(req.file, 'base64')
+    // console.log(fileBuffer)
+    // console.log(req.id);
+    // console.log(req.file);
+    // console.log(req.body);
+    console.log(req.params.id)
+    if (!req.file) {
+      res.status(400).send("No file uploaded.");
+      return;
+    }
+    const blob = bucket.file(req.file.originalname);
+    const blobStream = blob.createWriteStream();
+    blobStream.on("error", (err) => {
+      next(err);
+    });
+
+    blobStream.on("finish", (response) => {
+        var publicUrl = format(
+        `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+      );
+
+      res.status(200).send({publicUrl});
+    });   
+    
+    blobStream.end(req.file.buffer);
+
+    let queryObj = {
+        _id: mongoose.Types.ObjectId(Id), 
+        
+      }
+   
+  
+      console.log(queryObj);
+  
+      let updateObj = {
+        $set: {
+            "IMG":`https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+          "images[0]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+          "images[1]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+          "images[2]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+          "images[3]": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+        },
+      };
+    //   let updateObj2={
+    //     $set:{
+    //         "IMG": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+    //     },
+    //   }
+  console.log(updateObj)
+  try {
+    let item = await community.findOneAndUpdate(queryObj, updateObj,  { new: true });
+    console.log(item);
+  } catch (error) {
+    console.error(error);
+    // Handle the error appropriately
+  }
 }

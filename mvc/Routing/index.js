@@ -16,7 +16,15 @@ const fullstackController= require("../controllers/fullstackController");
 const botController=require("../controllers/botController");
 const LearnmoreController=require("../controllers/LearnmoreController")
 const aimlController=require("../controllers/aimlController")
+const userController=require("../controllers/userController")
 // const videoController=require("../controllers/videoController")
+const Multer = require('multer');
+const multer = Multer({
+    storage: Multer.memoryStorage(),
+    limits: {
+      fileSize: 100 * 1024 * 1024,
+    },
+  });
 
 // const authRoutes = require('./routes/auth');
 // app.use('/api/auth', authRoutes);
@@ -37,11 +45,14 @@ routes.get("/get-solutions", solutionController.getSolutions)
 routes.post("/post-solutions", solutionController.postSolutions)
 routes.get("/:id/heading/:headingId",solutionController.findSolutionsById)
 routes.patch("/solutionsMain/:id",solutionController.patchSolutions)
+routes.post("/fileuploadSolution/:id",multer.single('file'),solutionController.uploadFileSolution)
 
 // whyworkwithus
 routes.post("/post-workwithus",whyworkwithusController.createWorkwithus)
 routes.get("/get-workwithus", whyworkwithusController.getWorkwithus)
 routes.patch("/workwithus/:id",whyworkwithusController.patchWhyworkwithus)
+routes.post("/fileuploadwork/:id",multer.single('file'),whyworkwithusController.uploadFilework)
+
 
 //below both routes work for findById.As for everyapi iam using same api so i changed this route. or else both will work.
 // routes.get("/:id/workwithus/:id",findWhyworkwithusId)
@@ -53,22 +64,27 @@ routes.get("/get-jobs", jobsController.getJobs)
 routes.get("/:id/jobs",jobsController.findJobById)
 routes.patch("/jobs/:id",jobsController.patchJobs)
 
+
 // community
 routes.get("/get-community", communityController.getCommunity)
 routes.post("/post-community", communityController.createCommunity)
 routes.get("/:id/details/:detailsId",communityController.findCommunityById)
 routes.patch("/community/:id",communityController.patchCommunity)
 routes.patch("/communityMain/:id",communityController.patchMainCommunity)
+routes.post("/fileuploadCommu/:id",multer.single('file'),communityController.uploadFileCommu)
+
+
 
 // industries
 
 routes.post("/post-industries", industriesController.postIndustries)
 routes.get("/get-industries",industriesController.getIndustries)
 routes.patch("/industries/:id", industriesController.patchIndustries)
-// routes.post("/fileupload",industriesController.uploadFile)
+routes.post("/fileupload/:insiderId",multer.single('file'),industriesController.uploadFile)
 // routes.get("/industries/xyz", industriesController.deleteIndustries)
 routes.get("/:id/insider/:insiderId",industriesController.findInsiderById)
-routes.patch("/industriesimg/:id", industriesController.patchIndustriesimg)
+// routes.patch("/industriesimg/:id", industriesController.patchIndustriesimg)
+
 
 
 // testimonials
@@ -76,6 +92,7 @@ routes.post("/post-testimonials", testimonialsController.postTestimonials)
 routes.get("/get-testimonials",testimonialsController.getTestimonials)
 routes.get("/:id/slide/:slideId",testimonialsController.findTestimoById)
 routes.patch("/testimonials/:id",testimonialsController.patchTestimonials)
+routes.post("/fileuploadtesti/:slideId",multer.single('file'),testimonialsController.uploadFiletesti)
  
 
 // contact
@@ -92,6 +109,7 @@ routes.post("/post-whychoose", whychooseController.createChoose)
 routes.get("/get-whychoose", whychooseController.getChoose)
 routes.patch("/whychoose/:id", whychooseController.patchWhychoose)
 routes.get("/:id/desc/:descId",whychooseController.findWhyChooseById)
+routes.post("/fileuplaodchose/:id",multer.single('file'), whychooseController.uploadFilechose)
 
 // salesforce
 routes.post("/post-salesforce",salesforceController.postSalesforce)
@@ -100,6 +118,7 @@ routes.patch("/salesforcemain/:id",salesforceController.patchsalesforce)
 routes.get("/:id/salesforce",salesforceController.findsalesforceById)
 routes.get("/:id/salesforce/:solId",salesforceController.findSolsalesforceById)
 routes.patch("/solsalesforce/:id",salesforceController.patchSolsalesforce)
+routes.post("/fileuploadSol/:solId",multer.single('file'),salesforceController.uploadFileSol)
 
 // fullstack
 routes.post("/post-fullStack",fullstackController.postfullStack)
@@ -108,12 +127,14 @@ routes.patch("/fullStack/:id",fullstackController.patchfullStack)
 routes.get("/:id/fullStack",fullstackController.findfullStackById)
 routes.get("/:id/fullStack/:fulId",fullstackController.findfulId)
 routes.patch("/fulfullStack/:id",fullstackController.patchful)
+routes.post("/fileuploadful/:fulId",multer.single('file'),fullstackController.uploadFileful)
 
 // bot
 routes.post("/post-bot",botController.postbot)
 routes.get("/get-bot",botController.getbot)
 routes.patch("/bot/:id",botController.patchbot)
 routes.get("/:id/bot",botController.findbotById)
+routes.post("/fileuploadbot/:Id",multer.single('file'),botController.uploadFilebot)
 
 // aiml
 routes.post("/post-aiml",aimlController.postaiml)
@@ -122,6 +143,7 @@ routes.patch("/aimlmain/:id",aimlController.patchaiml)
 routes.get("/:id/aiml",aimlController.findaimlById)
 routes.get("/:id/aiml/:gridId",aimlController.findgridId)
 routes.patch("/gridaiml/:id",aimlController.patchgrid)
+routes.post('/upload/:id/:gridId?', multer.single('file'), aimlController.uploadFilegrid);
 
 
 // video
@@ -151,6 +173,12 @@ routes.patch("/Payers/:id",LearnmoreController.patchPayers)
 routes.post("/post-upload", uploadController.postUpload)
 
 
+// user
+routes.post("/Signup", userController.signup)
+routes.post("/login",userController.login)
+
+
+
 
 //email
 // routes.post("/post-email",emailController.postMail)
@@ -159,3 +187,6 @@ routes.post("/post-upload", uploadController.postUpload)
 // routes.post("/post-user", adminLoginController.postUser)
 // routes.get("/get-user", adminLoginController.getUser)  
 module.exports = routes; 
+
+
+

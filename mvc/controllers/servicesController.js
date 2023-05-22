@@ -56,7 +56,7 @@ exports.patchServices = async (req, res) => {
     console.log(shapesId)
 console.log(req.body)
 
-    let queryObj = { _id: mongoose.Types.ObjectId("6450fefe2dbe73a9c4980f8b"), "shapes._id": mongoose.Types.ObjectId(shapesId) }
+    let queryObj = { _id: mongoose.Types.ObjectId("6450fefe2dbe73a9c4980f8a"), "shapes._id": mongoose.Types.ObjectId(shapesId) }
 
     console.log(queryObj)
 
@@ -93,7 +93,7 @@ exports.patchServicesMain = async (req, res) => {
     console.log(whatId)
 console.log(req.body)
 
-    let queryObj = { _id: mongoose.Types.ObjectId("642a6e7ab094df34743e2c1d"), "what._id": mongoose.Types.ObjectId(whatId) }
+    let queryObj = { _id: mongoose.Types.ObjectId("6450fefe2dbe73a9c4980f8a"), "what._id": mongoose.Types.ObjectId(whatId) }
 
     console.log(queryObj)
 

@@ -1,5 +1,11 @@
 const {fullStack}= require("../Models/fullStackModel")
 const mongoose = require('mongoose');
+
+const Multer = require('multer');
+const {format} = require('util');
+
+const {Storage} = require('@google-cloud/storage');
+
 exports. getfullStack= async(req,res)=>{
     const data= await fullStack.find( )
     res.send(data)
@@ -43,7 +49,7 @@ exports.findfullStackById= async(req,res)=>{
             }
         };
 
-        
+
 
     exports.patchfullStack= async(req,res)=>{
         const para2= req.body.para2
@@ -108,3 +114,70 @@ exports.findfullStackById= async(req,res)=>{
         // console.log(req.body)
     
     }
+
+    const multer = Multer({
+        storage: Multer.memoryStorage(),
+        limits: {
+          fileSize: 100 * 1024 * 1024,
+        },
+      });
+      
+      const cloudStorage = new Storage({
+        // keyFilename: `${__dirname}/service_account_key.json`,
+        projectId: "urgent-care-306805",
+      });
+      const bucketName = "urgentcare-forms-demo";
+      const bucket = cloudStorage.bucket(bucketName);
+      
+      exports.uploadFileful = async (req, res, next) => {
+        
+        const fulId = req.params.fulId;
+        // confule.log(req.body.ful_id)
+        // var fileBuffer = Buffer.from(req.file, 'base64')
+        // confule.log(fileBuffer)
+        // confule.log(req.id);
+        // confule.log(req.file);
+        // confule.log(req.body);
+        console.log(req.params.fulId)
+        if (!req.file) {
+          res.status(400).send("No file uploaded.");
+          return;
+        }
+        const blob = bucket.file(req.file.originalname);
+        const blobStream = blob.createWriteStream();
+        blobStream.on("error", (err) => {
+          next(err);
+        });
+    
+        blobStream.on("finish", (response) => {
+            var publicUrl = format(
+            `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+          );
+    
+          res.status(200).send({publicUrl});
+        });   
+        
+        blobStream.end(req.file.buffer);
+    
+        let queryObj = {
+            _id: mongoose.Types.ObjectId(""),
+            "ful._id": mongoose.Types.ObjectId(fulId),
+          };
+      
+          confule.log(queryObj);
+      
+          let updateObj = {
+            $set: {
+              "ful.$.img": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+            },
+          };
+      confule.log(updateObj)
+      try {
+        let item = await fulutionSalesforce.findOneAndUpdate(queryObj, updateObj, { new: true });
+        confule.log(item);
+      } catch (error) {
+        console.error(error);
+        // Handle the error appropriately
+      }
+    }
+    

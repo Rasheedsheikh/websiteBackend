@@ -1,5 +1,10 @@
 const {aiml}= require("../Models/AiModel")
 const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+const Multer = require('multer');
+const {Storage} = require('@google-cloud/storage');
+const {format} = require('util');
+
 exports. getaiml= async(req,res)=>{
     const data= await aiml.find( )
     res.send(data)
@@ -105,3 +110,74 @@ exports.findaimlById= async(req,res)=>{
         // console.log(req.body)
     
     }
+
+
+    const multer = Multer({
+        storage: Multer.memoryStorage(),
+        limits: {
+          fileSize: 100 * 1024 * 1024,
+        },
+      });
+      
+      const cloudStorage = new Storage({
+        // keyFilename: `${__dirname}/service_account_key.json`,
+        projectId: "urgent-care-306805",
+      });
+      const bucketName = "urgentcare-forms-demo";
+      const bucket = cloudStorage.bucket(bucketName);
+      
+      exports.uploadFilegrid = async (req, res, next) => {
+        const id = req.params.id;
+        const gridId = req.params.gridId;
+        console.log(id)
+      
+        if (!req.file) {
+          res.status(400).send("No file uploaded.");
+          return;
+        }
+      
+        const blob = bucket.file(req.file.originalname);
+        const blobStream = blob.createWriteStream();
+      
+        blobStream.on("error", (err) => {
+          next(err);
+        });
+      
+        blobStream.on("finish", (response) => {
+          var publicUrl = format(
+            `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+          );
+      
+          res.status(200).send({ publicUrl });
+        });
+      
+        blobStream.end(req.file.buffer);
+      
+        let queryObj = {
+          _id: mongoose.Types.ObjectId(id),
+        };
+      
+        let updateObj = {
+          $set: {},
+        };
+      
+        // Update the grid image if gridId is provided
+        if (gridId) {
+          queryObj["grid._id"] = mongoose.Types.ObjectId(gridId);
+          updateObj["$set"]["grid.$.img"] = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+        } else {
+          // Update the main ID image if gridId is not provided
+          updateObj["$set"]["image"] = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+        }
+      
+        try {
+          let item = await aiml.findOneAndUpdate(queryObj, updateObj, { new: true });
+          console.log(item);
+        } catch (error) {
+          console.error(error);
+          // Handle the error appropriately
+        }
+      };
+      
+   
+      

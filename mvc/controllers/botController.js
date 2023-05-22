@@ -1,5 +1,9 @@
 const {bot}= require("../Models/botModel")
+// const mongoose = require('mongoose');
+const {format} = require('util');
 const mongoose = require('mongoose');
+const Multer = require('multer');
+const {Storage} = require('@google-cloud/storage');
 exports. getbot= async(req,res)=>{
     const data= await bot.find( )
     res.send(data)
@@ -55,6 +59,71 @@ exports.findbotById= async(req,res)=>{
         console.log(item,updateObj)
     }
     
+    const multer = Multer({
+      storage: Multer.memoryStorage(),
+      limits: {
+        fileSize: 100 * 1024 * 1024,
+      },
+    });
     
-
+    const cloudStorage = new Storage({
+      // keyFilename: `${__dirname}/service_account_key.json`,
+      projectId: "urgent-care-306805",
+    });
+    const bucketName = "urgentcare-forms-demo";
+    const bucket = cloudStorage.bucket(bucketName);
+    
+    exports.uploadFilebot = async (req, res, next) => {
       
+      const Id = req.params.id;
+      // console.log(req.body._id)
+      // var fileBuffer = Buffer.from(req.file, 'base64')
+      // console.log(fileBuffer)
+      // console.log(req.id);
+      // console.log(req.file);
+      // console.log(req.body);
+      console.log(req.params.id)
+      if (!req.file) {
+        res.status(400).send("No file uploaded.");
+        return;
+      }
+      const blob = bucket.file(req.file.originalname);
+      const blobStream = blob.createWriteStream();
+      blobStream.on("error", (err) => {
+        next(err);
+      });
+  
+      blobStream.on("finish", (response) => {
+          var publicUrl = format(
+          `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+        );
+  
+        res.status(200).send({publicUrl});
+      });   
+      
+      blobStream.end(req.file.buffer);
+  
+      let queryObj = {
+          _id: mongoose.Types.ObjectId(Id),
+     
+        };
+    
+        console.log(queryObj);
+    
+        let updateObj = {
+          $set: {
+            "img": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+            "image":`https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+          },
+        };
+    console.log(updateObj)
+    try {
+      let item = await bot.findOneAndUpdate(queryObj, updateObj, { new: true });
+      console.log(item);
+    } catch (error) {
+      console.error(error);
+      // Handle the error appropriately
+    }
+  }
+  
+  

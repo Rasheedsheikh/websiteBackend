@@ -10,12 +10,12 @@ const solutions = new mongoose.Schema({
             desc: { type: String, required: false },
         }],
     
-    Images: [{
+ 
         
-            img: { type: String, required: false },
+            img: { type: String, required: false }
             
 
-        }]
+     
     
 
 

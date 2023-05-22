@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+const {format} = require('util');
+// const mongoose = require('mongoose');
+const Multer = require('multer');
+const {Storage} = require('@google-cloud/storage');
 const {whychoose}= require("../Models/whychooseModel")
 
 exports. getChoose= async(req,res)=>{
@@ -84,7 +88,7 @@ exports.findWhyChooseById = async (req, res) => {
         const { id } = req.params;
         const { descId } = req.params;
         const industry = await whychoose.findById(id);
-        const desc = industry.desc.find(i => i._id == descId);
+        const desc = whychoose.desc.find(i => i._id == descId);
         if (desc) {
             res.status(200).json(desc);
         } else {
@@ -94,3 +98,69 @@ exports.findWhyChooseById = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+const multer = Multer({
+  storage: Multer.memoryStorage(),
+  limits: {
+    fileSize: 100 * 1024 * 1024,
+  },
+});
+
+const cloudStorage = new Storage({
+  // keyFilename: `${__dirname}/service_account_key.json`,
+  projectId: "urgent-care-306805",
+});
+const bucketName = "urgentcare-forms-demo";
+const bucket = cloudStorage.bucket(bucketName);
+
+exports.uploadFilechose = async (req, res, next) => {
+  
+  const Id = req.params.id;
+  // console.log(req.body._id)
+  // var fileBuffer = Buffer.from(req.file, 'base64')
+  // console.log(fileBuffer)
+  // console.log(req.id);
+  // console.log(req.file);
+  // console.log(req.body);
+  console.log(req.params.id)
+  if (!req.file) {
+    res.status(400).send("No file uploaded.");
+    return;
+  }
+  const blob = bucket.file(req.file.originalname);
+  const blobStream = blob.createWriteStream();
+  blobStream.on("error", (err) => {
+    next(err);
+  });
+
+  blobStream.on("finish", (response) => {
+      var publicUrl = format(
+      `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+    );
+
+    res.status(200).send({publicUrl});
+  });   
+  
+  blobStream.end(req.file.buffer);
+
+  let queryObj = {
+      _id: mongoose.Types.ObjectId(Id),
+ 
+    };
+
+    console.log(queryObj);
+
+    let updateObj = {
+      $set: {
+        "img": `https://storage.googleapis.com/${bucket.name}/${blob.name}`,
+      },
+    };
+console.log(updateObj)
+try {
+  let item = await whychoose.findOneAndUpdate(queryObj, updateObj, { new: true });
+  console.log(item);
+} catch (error) {
+  console.error(error);
+  // Handle the error appropriately
+}
+}
+

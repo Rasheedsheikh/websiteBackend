@@ -14,7 +14,7 @@ exports.postlearnmore= async(req,res)=>{
 
 exports.findlearnmoreById= async(req,res)=>{
     try {
-        const result = await learnmore.findById(req.params.id);
+        const result = await learn.findById(req.params.id);
         if (!result) {
           return res.status(404).json({ message: 'No Whyworkwithus item found' });
         }
@@ -31,7 +31,7 @@ exports.findlearnmoreById= async(req,res)=>{
             try {  
                 const { id } = req.params;
                 const { lifeId } = req.params;
-                const industry = await learnmore.findById(id);
+                const industry = await learn.findById(id);
                 const life = industry.life.find(i => i._id == lifeId);
                 if (life) {
                     res.status(200).json(life);
@@ -47,7 +47,7 @@ exports.findlearnmoreById= async(req,res)=>{
             try {  
                 const { id } = req.params;
                 const { EmerId } = req.params;
-                const industry = await learnmore.findById(id);
+                const industry = await learn.findById(id);
                 const Emer = industry.Emer.find(i => i._id == EmerId);
                 if (Emer) {
                     res.status(200).json(Emer);
@@ -63,7 +63,7 @@ exports.findlearnmoreById= async(req,res)=>{
             try {  
                 const { id } = req.params;
                 const { providersId } = req.params;
-                const industry = await learnmore.findById(id);
+                const industry = await learn.findById(id);
                 const providers = industry.provider.find(i => i._id == providersId);
                 if (providers) {
                     res.status(200).json(provider);
@@ -81,7 +81,7 @@ exports.findlearnmoreById= async(req,res)=>{
             try {  
                 const { id } = req.params;
                 const { PayerId } = req.params;
-                const industry = await learnmore.findById(id);
+                const industry = await learn.findById(id);
                 const Payer = industry.Payer.find(i => i._id == PayerId);
                 if (Payer) {
                     res.status(200).json(Payer);
@@ -95,8 +95,8 @@ exports.findlearnmoreById= async(req,res)=>{
         
 
     exports.patchEmer= async(req,res)=>{
-        const desc = req.body.desc;
-        const desctitle=req.body.desctitle
+        const desc = req.body.desc
+        const title=req.body.title
         const img= req.body.img
         // const id=req.body.id
         const EmerId = req.params.id
@@ -112,14 +112,17 @@ exports.findlearnmoreById= async(req,res)=>{
         let updateObj = {
             $set: {
                 // "sol.$.imgtitle": imgtitle,
-                "Emer.$.desc": desc,
-                "Emer.$.desctitle":desctitle,
+                "Emer.$.desc.0": desc[0],
+                "Emer.$.desc.1": desc[1],
+                "Emer.$.desc.2": desc[2],
+                "Emer.$.desc.3": desc[3],
+                "Emer.$.title":title,
                 "Emer.$.img":img
                 
                 // "insider.$.button": button
             }
         }
-        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        let item = await learn.findOneAndUpdate(queryObj, updateObj, { new: true })
         res.send(item)
         console.log(item,updateObj)
     
@@ -132,8 +135,8 @@ exports.findlearnmoreById= async(req,res)=>{
     exports.patchlife = async (req, res) => {
 
         //    const imgtitle = req.body.imgtitle;
-        const desc = req.body.desc;
-        const desctitle=req.body.desctitle
+        const desc = req.body.desc
+        const title=req.body.title
         const img= req.body.img
         // const id=req.body.id
         const lifeId = req.params.id
@@ -149,14 +152,17 @@ exports.findlearnmoreById= async(req,res)=>{
         let updateObj = {
             $set: {
                 // "sol.$.imgtitle": imgtitle,
-                "life.$.desc": desc,
-                "life.$.desctitle":desctitle,
+                "life.$.desc.0": desc[0],
+                "life.$.desc.1": desc[1],
+                "life.$.desc.2": desc[2],
+                "life.$.desc.3": desc[3],
+                "life.$.title":title,
                 "life.$.img":img
                 
                 // "insider.$.button": button
             }
         }
-        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        let item = await learn.findOneAndUpdate(queryObj, updateObj, { new: true })
         res.send(item)
         console.log(item,updateObj)
     
@@ -169,31 +175,35 @@ exports.findlearnmoreById= async(req,res)=>{
     exports.patchprovider = async (req, res) => {
 
         //    const imgtitle = req.body.imgtitle;
-        const desc = req.body.desc;
-        const desctitle=req.body.desctitle
+        const desc = req.body.desc
+        const title=req.body.title
         const img= req.body.img
         // const id=req.body.id
-        const providerId = req.params.id
+        const providersId = req.params.id
         //  const id=req.params.id
         //   console.log(name,req,id)
-        console.log(providerId)
+        console.log(providersId)
     console.log(req.body)
     
-        let queryObj = { _id: mongoose.Types.ObjectId("646223526b35ea701d77405f"), "provider._id": mongoose.Types.ObjectId(providerId) }
+        let queryObj = { _id: mongoose.Types.ObjectId("646223526b35ea701d77405f"), "providers._id": mongoose.Types.ObjectId(providersId) }
     
         console.log(queryObj)
     
         let updateObj = {
             $set: {
                 // "sol.$.imgtitle": imgtitle,
-                "provider.$.desc": desc,
-                "provider.$.desctitle":desctitle,
-                "provider.$.img":img
+                "providers.$.desc.0": desc[0],
+                "providers.$.desc.1": desc[1],
+                "providers.$.desc.2": desc[2],
+                "providers.$.desc.3": desc[3],
+               
+                "providers.$.title":title,
+                "providers.$.img":img
                 
                 // "insider.$.button": button
             }
         }
-        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        let item = await learn.findOneAndUpdate(queryObj, updateObj, { new: true })
         res.send(item)
         console.log(item,updateObj)
     
@@ -205,8 +215,8 @@ exports.findlearnmoreById= async(req,res)=>{
     exports.patchPayers = async (req, res) => {
 
         //    const imgtitle = req.body.imgtitle;
-        const desc = req.body.desc;
-        const desctitle=req.body.desctitle
+        const desc = req.body.desc
+        const title=req.body.title
         const img= req.body.img
         // const id=req.body.id
         const PayersId = req.params.id
@@ -222,14 +232,17 @@ exports.findlearnmoreById= async(req,res)=>{
         let updateObj = {
             $set: {
                 // "sol.$.imgtitle": imgtitle,
-                "Payers.$.desc": desc,
-                "Payers.$.desctitle":desctitle,
+                "Payers.$.desc.0": desc[0],
+                "Payers.$.desc.1": desc[1],
+                "Payers.$.desc.2": desc[2],
+                "Payers.$.desc.3": desc[3],
+                "Payers.$.title":title,
                 "Payers.$.img":img
                 
                 // "insider.$.button": button
             }
         }
-        let item = await learnmore.findOneAndUpdate(queryObj, updateObj, { new: true })
+        let item = await learn.findOneAndUpdate(queryObj, updateObj, { new: true })
         res.send(item)
         console.log(item,updateObj)
     
