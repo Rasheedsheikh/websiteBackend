@@ -77,11 +77,11 @@ exports.patchContact = async (req, res) => {
                 "Telephone": Telephone,   
             }
         }
-        let item = await contact.findOneAndUpdate(queryObj, updateObj ,{ new: true })
-        console.log(item)
+        let ite = await contact.findOneAndUpdate(queryObj, updateObj ,{ new: true })
+        console.log(ite)
         // let data= await contact.find(queryObj)
         // console.log(data)
-        res.status(200).send(item)
+        res.status(200).send(ite)
         // console.log(item, updateObj)
     } catch (e) {
         console.log({ e });
